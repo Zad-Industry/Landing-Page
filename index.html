@@ -8,13 +8,49 @@
       name="description"
       content="Zad Industry builds scalable, secure software systems for startups and growing businesses."
     />
+    <meta name="theme-color" content="#070b11" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Zad Industry" />
+    <link rel="canonical" href="https://zadindustry.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Zad Industry | Scalable, Secure Systems" />
+    <meta
+      property="og:description"
+      content="Zad Industry builds scalable, secure software systems for startups and growing businesses."
+    />
+    <meta property="og:url" content="https://zadindustry.com/" />
+    <meta property="og:site_name" content="Zad Industry" />
+    <meta property="og:image" content="https://zadindustry.com/og-image.svg" />
+    <meta property="og:image:alt" content="Zad Industry security-first engineering" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Zad Industry | Scalable, Secure Systems" />
+    <meta
+      name="twitter:description"
+      content="Zad Industry builds scalable, secure software systems for startups and growing businesses."
+    />
+    <meta name="twitter:image" content="https://zadindustry.com/og-image.svg" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Sora:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Zad Industry",
+        "url": "https://zadindustry.com/",
+        "description": "Zad Industry builds scalable, secure software systems for startups and growing businesses.",
+        "foundingDate": "2026",
+        "areaServed": "Worldwide",
+        "slogan": "Building scalable, secure systems from day one"
+      }
+    </script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main">Skip to content</a>
@@ -27,7 +63,7 @@
         <a class="brand" href="#top" aria-label="Zad Industry home">Zad Industry</a>
         <nav class="nav" id="primary-nav" aria-label="Primary">
           <a href="#about">About</a>
-          <a href="#pillars">Pillars</a>
+          <a href="#capabilities">Capabilities</a>
           <a href="#services">What we do</a>
           <a href="#security">Security</a>
           <a href="#process">Process</a>
@@ -47,7 +83,7 @@
       <section class="hero section">
         <div class="container hero-grid">
           <div class="hero-content" data-reveal>
-            <p class="eyebrow">Building with intent</p>
+            <p class="eyebrow">Engineering partner</p>
             <h1>Building Scalable, Secure Systems From Day One</h1>
             <p class="lead">
               We design, build, and optimize high-performance software systems for startups and
@@ -228,6 +264,44 @@
         </div>
       </section>
 
+      <section class="section trust" id="capabilities">
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <p class="eyebrow">Delivery confidence</p>
+            <h2>How we reduce delivery risk and keep systems ready for production.</h2>
+          </div>
+          <div class="cards-grid trust-grid">
+            <article class="card case-card" data-reveal style="--delay: 120ms">
+              <p class="case-label">Security hardening</p>
+              <h3>Threat modeling, secure defaults, and guarded release paths.</h3>
+              <p>
+                We build with least-privilege access, safe configuration, and early security checks
+                so risks are visible before release.
+              </p>
+            </article>
+            <article class="card case-card" data-reveal style="--delay: 160ms">
+              <p class="case-label">Scale readiness</p>
+              <h3>Architecture that can absorb growth without rewrites.</h3>
+              <p>
+                We design modular systems, predictable data flows, and infrastructure that can grow
+                alongside product demand.
+              </p>
+            </article>
+            <article class="card case-card" data-reveal style="--delay: 200ms">
+              <p class="case-label">Legacy modernization</p>
+              <h3>Safer refactors with measurable, incremental change.</h3>
+              <p>
+                We stabilize existing platforms, improve maintainability, and introduce clearer
+                delivery paths without unnecessary disruption.
+              </p>
+            </article>
+          </div>
+          <p class="security-note" data-reveal style="--delay: 240ms">
+            The goal is simple: lower delivery risk and keep systems ready for real-world use.
+          </p>
+        </div>
+      </section>
+
       <section class="section readiness" id="readiness">
         <div class="container">
           <div class="section-header" data-reveal>
@@ -395,6 +469,57 @@
         </div>
       </section>
 
+      <section class="section contact" id="contact-form">
+        <div class="container">
+          <div class="section-header" data-reveal>
+            <p class="eyebrow">Start a project</p>
+            <h2>Tell us about your system and we will respond within 24 hours.</h2>
+          </div>
+          <div class="contact-grid">
+            <form class="contact-form" data-reveal style="--delay: 120ms">
+              <label>
+                Full name
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label>
+                Work email
+                <input type="email" name="email" placeholder="name@company.com" required />
+              </label>
+              <label>
+                Company size
+                <select name="company" required>
+                  <option value="">Select range</option>
+                  <option value="1-10">1-10</option>
+                  <option value="11-50">11-50</option>
+                  <option value="51-200">51-200</option>
+                  <option value="201+">201+</option>
+                </select>
+              </label>
+              <label>
+                What do you need help with?
+                <textarea name="message" rows="4" placeholder="Tell us about your system"></textarea>
+              </label>
+              <button class="btn btn-primary" type="submit">Submit request</button>
+              <p class="form-note" role="status" aria-live="polite">
+                Prefer email? Reach us at hello@zadindustry.com.
+              </p>
+            </form>
+            <div class="contact-panel" data-reveal style="--delay: 180ms">
+              <h3>What happens next</h3>
+              <ul class="bullet-list">
+                <li>We review your request within 24 hours.</li>
+                <li>We schedule a discovery call within 2-3 business days.</li>
+                <li>We provide a scope, timeline, and delivery plan.</li>
+              </ul>
+              <div class="contact-box">
+                <p>Security assessments available on request.</p>
+                <span>Enterprise-ready engagements.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="section cta" id="contact">
         <div class="container cta-inner" data-reveal>
           <div>
@@ -403,8 +528,8 @@
             <p>We do not just build systems -- we design, secure, and scale them.</p>
           </div>
           <div class="cta-actions">
-            <a class="btn btn-primary" href="#contact">Start Your Project</a>
-            <a class="btn btn-ghost" href="#contact">Book a Call</a>
+            <a class="btn btn-primary" href="#contact-form">Start Your Project</a>
+            <a class="btn btn-ghost" href="#contact-form">Book a Call</a>
           </div>
         </div>
       </section>
@@ -412,8 +537,9 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <span>Zad Industry (c) 2026</span>
+        <span>Zad Industry &copy; 2026</span>
         <span>Engineering scalable systems for modern businesses.</span>
+        <span>hello@zadindustry.com</span>
       </div>
     </footer>
 
