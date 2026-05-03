@@ -107,6 +107,33 @@ a {
   z-index: 1;
 }
 
+/* Header brand/logo */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  display: block;
+  object-fit: contain;
+}
+
+.brand-text {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+@media (max-width: 720px) {
+  .brand-text { display: none; }
+  .brand-logo { width: 36px; height: 36px; }
+}
+
 .section {
   padding: 5.5rem 0;
 }
