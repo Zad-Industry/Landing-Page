@@ -114,11 +114,21 @@ if (nav && navIndicator && navPillLinks.length) {
 
 const contactForm = document.querySelector(".contact-form");
 const formNote = document.querySelector(".form-note");
+const footerForm = document.querySelector(".footer-form");
+const footerNote = document.querySelector(".footer-note-form");
 
 if (contactForm && formNote) {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
     formNote.textContent = "Thanks. We have your request and will respond within 24 hours.";
     contactForm.reset();
+  });
+}
+
+if (footerForm && footerNote) {
+  footerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    footerNote.textContent = "Subscribed. Expect a monthly delivery update.";
+    footerForm.reset();
   });
 }

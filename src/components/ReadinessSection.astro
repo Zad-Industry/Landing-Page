@@ -4,29 +4,83 @@
       <p class="eyebrow">Production readiness</p>
       <h2>Operational guardrails that keep systems stable.</h2>
     </div>
-    <div class="readiness-panel" data-reveal style="--delay: 80ms">
-      <div>
-        <p class="panel-label">Release readiness</p>
-        <h3>We measure stability before every launch.</h3>
-        <p class="section-body">
-          Error budgets, performance baselines, and compliance checks are reviewed before release.
-        </p>
+      <div class="readiness-panel" data-reveal style="--delay: 80ms">
+        <div>
+          <p class="panel-label">Release readiness</p>
+          <h3>We measure stability before every launch.</h3>
+          <p class="section-body">
+            Error budgets, performance baselines, and compliance checks are reviewed before release.
+          </p>
+        </div>
+        <div class="panel-metrics">
+          <div>
+            <strong>98%</strong>
+            <span>Builds pass gates</span>
+          </div>
+          <div>
+            <strong>0.9s</strong>
+            <span>P95 API latency</span>
+          </div>
+          <div>
+            <strong>7 days</strong>
+            <span>Mean time to fix</span>
+          </div>
+        </div>
       </div>
-      <div class="panel-metrics">
-        <div>
-          <strong>98%</strong>
-          <span>Builds pass gates</span>
+      <div class="readiness-charts" data-reveal style="--delay: 120ms">
+        <div class="readiness-chart">
+          <div class="chart-legend">
+            <span>Release stability</span>
+            <span class="chart-value">+22%</span>
+          </div>
+          <svg class="sparkline" viewBox="0 0 160 48" role="img" aria-label="Stability trend">
+            <path
+              d="M4 34 C 20 30, 38 26, 56 24 C 74 22, 92 16, 110 12 C 128 10, 146 12, 156 8"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="chart-bars" aria-hidden="true">
+            <span style="--bar: 0.3"></span>
+            <span style="--bar: 0.42"></span>
+            <span style="--bar: 0.56"></span>
+            <span style="--bar: 0.64"></span>
+            <span style="--bar: 0.7"></span>
+            <span style="--bar: 0.78"></span>
+            <span style="--bar: 0.86"></span>
+            <span style="--bar: 0.9"></span>
+          </div>
+          <p class="chart-caption">Fewer failed releases with pre-flight gating.</p>
         </div>
-        <div>
-          <strong>0.9s</strong>
-          <span>P95 API latency</span>
-        </div>
-        <div>
-          <strong>7 days</strong>
-          <span>Mean time to fix</span>
+        <div class="readiness-chart">
+          <div class="chart-legend">
+            <span>Incident response</span>
+            <span class="chart-value">-41%</span>
+          </div>
+          <svg class="sparkline" viewBox="0 0 160 48" role="img" aria-label="Response time trend">
+            <path
+              d="M4 12 C 22 16, 40 20, 58 24 C 76 28, 94 32, 112 36 C 130 38, 146 40, 156 42"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="chart-bars" aria-hidden="true">
+            <span style="--bar: 0.86"></span>
+            <span style="--bar: 0.78"></span>
+            <span style="--bar: 0.7"></span>
+            <span style="--bar: 0.62"></span>
+            <span style="--bar: 0.54"></span>
+            <span style="--bar: 0.45"></span>
+            <span style="--bar: 0.38"></span>
+            <span style="--bar: 0.3"></span>
+          </div>
+          <p class="chart-caption">Faster response with clearer escalation playbooks.</p>
         </div>
       </div>
-    </div>
     <div class="readiness-grid">
       <article class="card readiness-card" data-reveal style="--delay: 60ms">
         <h3>Observability &amp; SLOs</h3>

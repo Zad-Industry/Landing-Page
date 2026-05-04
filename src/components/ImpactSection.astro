@@ -4,13 +4,13 @@
       <p class="eyebrow">Production ready</p>
       <h2>Launch with guardrails, not guesswork.</h2>
       <p class="lead">
-        We harden delivery paths with security reviews, staging gates, and observability so your
-        launches stay stable when real users arrive.
+        We harden delivery paths with security reviews, staged gates, and real-time observability so
+        launches stay stable the moment real users arrive.
       </p>
       <ul class="impact-list">
-        <li>Risk register with mitigation plans</li>
-        <li>Release playbooks, rollback drills, and QA gates</li>
-        <li>SLOs, alerting, and on-call readiness</li>
+        <li>Risk register with owners, timelines, and mitigation plans</li>
+        <li>Release playbooks, rollback drills, and QA sign-offs</li>
+        <li>SLOs, alerting, and escalation paths for on-call readiness</li>
       </ul>
       <div class="impact-actions">
         <a class="btn btn-primary" href="#contact">Request a roadmap</a>
@@ -32,55 +32,81 @@
           <p>Throughput gains after performance tuning.</p>
         </div>
       </div>
-      <div class="impact-panel" data-reveal style="--delay: 200ms">
-        <div class="impact-panel-header">
-          <div>
-            <span class="panel-label">End-user impact</span>
-            <strong>Last 30 days</strong>
+        <div class="impact-panel" data-reveal style="--delay: 200ms">
+          <div class="impact-panel-header">
+            <div>
+              <span class="panel-label">End-user impact</span>
+              <strong>Last 30 days</strong>
+            </div>
+            <span class="panel-chip">Live</span>
           </div>
-          <span class="panel-chip">Live</span>
-        </div>
-        <div class="impact-chart">
-          <div class="chart-legend">
-            <span>Median latency</span>
-            <span class="chart-value">-32%</span>
+          <div class="impact-chart">
+            <div class="chart-legend">
+              <span>Median latency</span>
+              <span class="chart-value">-32%</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Latency trend">
+              <path
+                d="M4 32 C 18 18, 28 30, 42 22 C 56 14, 70 18, 84 10 C 98 2, 114 8, 136 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+            <div class="chart-bars" aria-hidden="true">
+              <span style="--bar: 0.35"></span>
+              <span style="--bar: 0.5"></span>
+              <span style="--bar: 0.6"></span>
+              <span style="--bar: 0.72"></span>
+              <span style="--bar: 0.68"></span>
+              <span style="--bar: 0.82"></span>
+              <span style="--bar: 0.9"></span>
+              <span style="--bar: 0.95"></span>
+            </div>
+            <p class="chart-caption">Traffic climbs while error rates stay below 0.1%.</p>
           </div>
-          <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Latency trend">
-            <path
-              d="M4 32 C 18 18, 28 30, 42 22 C 56 14, 70 18, 84 10 C 98 2, 114 8, 136 6"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="3"
-              stroke-linecap="round"
-            />
-          </svg>
-          <div class="chart-bars" aria-hidden="true">
-            <span style="--bar: 0.35"></span>
-            <span style="--bar: 0.5"></span>
-            <span style="--bar: 0.6"></span>
-            <span style="--bar: 0.72"></span>
-            <span style="--bar: 0.68"></span>
-            <span style="--bar: 0.82"></span>
-            <span style="--bar: 0.9"></span>
-            <span style="--bar: 0.95"></span>
+          <div class="impact-chart secondary">
+            <div class="chart-legend">
+              <span>Conversion rate</span>
+              <span class="chart-value">+14%</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Conversion trend">
+              <path
+                d="M4 34 C 18 30, 28 26, 42 20 C 56 16, 70 18, 84 12 C 98 8, 114 10, 136 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+            <div class="chart-bars" aria-hidden="true">
+              <span style="--bar: 0.4"></span>
+              <span style="--bar: 0.46"></span>
+              <span style="--bar: 0.55"></span>
+              <span style="--bar: 0.62"></span>
+              <span style="--bar: 0.72"></span>
+              <span style="--bar: 0.8"></span>
+              <span style="--bar: 0.88"></span>
+              <span style="--bar: 0.92"></span>
+            </div>
+            <p class="chart-caption">Higher speed translates to more completed sessions.</p>
           </div>
-          <p class="chart-caption">Traffic climbs while error rates stay below 0.1%.</p>
-        </div>
-        <div class="impact-footer">
-          <div>
-            <strong>99.95%</strong>
-            <span>Uptime</span>
-          </div>
-          <div>
-            <strong>1.8s</strong>
-            <span>Median response</span>
-          </div>
-          <div>
-            <strong>+14%</strong>
-            <span>Conversion lift</span>
+          <div class="impact-footer">
+            <div>
+              <strong>99.95%</strong>
+              <span>Uptime</span>
+            </div>
+            <div>
+              <strong>1.8s</strong>
+              <span>Median response</span>
+            </div>
+            <div>
+              <strong>+14%</strong>
+              <span>Conversion lift</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>

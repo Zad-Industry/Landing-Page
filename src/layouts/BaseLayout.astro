@@ -97,21 +97,31 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
     <slot />
 
     <footer class="site-footer">
-      <div class="container footer-grid">
+      <div class="container footer-top">
         <div class="footer-brand">
-          <span class="footer-logo">Zad Industry</span>
-          <p>
-            Security-first engineering for startups and scaleups that need reliable delivery and
-            production-ready systems.
-          </p>
-          <div class="footer-cta">
-            <a class="btn btn-primary" href="#contact-form">Start a project</a>
-            <a class="btn btn-ghost" href="#contact-form">Get the audit worksheet</a>
+          <div>
+            <span class="footer-logo">Zad Industry</span>
+            <p>
+              Security-first engineering for startups and scaleups that need reliable delivery and
+              production-ready systems.
+            </p>
           </div>
+          <form class="footer-form" aria-label="Subscribe">
+            <label>
+              Stay in the loop
+              <div class="footer-input">
+                <input type="email" name="email" placeholder="name@company.com" required />
+                <button class="btn btn-primary" type="submit">Subscribe</button>
+              </div>
+            </label>
+            <span class="footer-note footer-note-form" role="status" aria-live="polite">
+              No spam. Security, delivery, and readiness updates.
+            </span>
+          </form>
         </div>
         <div class="footer-links">
           <div>
-            <span class="footer-title">Product</span>
+            <span class="footer-title">Solutions</span>
             <a href="#services">Services</a>
             <a href="#capabilities">Capabilities</a>
             <a href="#security">Security</a>
@@ -125,6 +135,13 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
             <a href="#contact-form">Contact</a>
           </div>
           <div>
+            <span class="footer-title">Resources</span>
+            <a href="#impact">Impact metrics</a>
+            <a href="#readiness">Readiness checklist</a>
+            <a href="#security">Security playbook</a>
+            <a href="#contact-form">Audit worksheet</a>
+          </div>
+          <div>
             <span class="footer-title">Contact</span>
             <a href="mailto:hello@zadindustry.com">hello@zadindustry.com</a>
             <a href="tel:+10000000000">+1 (000) 000-0000</a>
@@ -133,11 +150,23 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© 2026 Zad Industry. All rights reserved.</span>
-        <div class="footer-social">
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="https://x.com" target="_blank" rel="noreferrer">X</a>
+        <div class="footer-cta">
+          <div>
+            <span class="footer-title">Ready to ship?</span>
+            <p>Tell us your launch window. We will send a delivery plan in 48 hours.</p>
+          </div>
+          <div class="footer-actions">
+            <a class="btn btn-primary" href="#contact-form">Start a project</a>
+            <a class="btn btn-ghost" href="#contact-form">Get the audit worksheet</a>
+          </div>
+        </div>
+        <div class="footer-meta">
+          <span>© 2026 Zad Industry. All rights reserved.</span>
+          <div class="footer-social">
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://x.com" target="_blank" rel="noreferrer">X</a>
+          </div>
         </div>
       </div>
     </footer>
