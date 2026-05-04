@@ -1,0 +1,39 @@
+---
+const links = [
+  { href: "#top", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#capabilities", label: "Capabilities" },
+  { href: "#services", label: "What we do" },
+  { href: "#security", label: "Engineering" },
+  { href: "#process", label: "Process" },
+  { href: "#resources", label: "Resources" },
+  { href: "#contact", label: "Start" },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="nav-shell">
+      <nav class="nav nav-pill" id="primary-nav" aria-label="Primary">
+        <span class="nav-indicator" aria-hidden="true"></span>
+        {links.map((link, index) => (
+          <a href={link.href} class={"nav-link" + (index === 0 ? " is-active" : "")}>
+            {link.label}
+          </a>
+        ))}
+      </nav>
+      <div class="header-actions nav-actions">
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          Menu
+        </button>
+        <a class="btn btn-ghost" href="#contact">Book a Call</a>
+        <a class="btn btn-primary" href="#contact">Get Started</a>
+      </div>
+    </div>
+  </div>
+</header>

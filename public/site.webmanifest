@@ -1,7 +1,7 @@
 {
-  "name": "zad",
-  "short_name": "zad",
-  "description": "zad builds scalable, secure software systems for startups and growing businesses.",
+  "name": "Zad Industry",
+  "short_name": "Zad",
+  "description": "Zad Industry builds and improves software systems for startups and growing businesses, with secure engineering built in.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#070b11",

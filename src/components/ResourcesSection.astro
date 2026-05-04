@@ -1,0 +1,62 @@
+---
+import Section from "./Section.astro";
+import Card from "./Card.astro";
+---
+
+<Section id="resources" className="resources">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <p class="eyebrow">Resources</p>
+      <h2>Launch kits and checklists for fast engineering delivery.</h2>
+      <p class="section-body">
+        Practical guides that help teams prepare for delivery, review scope, and align engineering
+        decisions with secure-by-default practices.
+      </p>
+    </div>
+    <div class="resources-grid">
+      <Card className="resource-card" data-reveal style="--delay: 80ms">
+        <span class="panel-label">Featured</span>
+        <h3>Delivery Readiness Guide</h3>
+        <p>
+          A practical checklist to review QA gates, release ownership, and system scope before you
+          launch.
+        </p>
+        <ul class="bullet-list">
+          <li>Release readiness checklist</li>
+          <li>Risk register template</li>
+          <li>Go-live checklist</li>
+        </ul>
+        <div class="resource-meta">
+          <span>PDF · 12 pages</span>
+          <span>Updated monthly</span>
+        </div>
+        <a
+          class="btn btn-primary"
+          href="mailto:hello@zadindustry.com?subject=Delivery%20Readiness%20Guide%20Request&body=Hi%20Zad%20Industry%20team,%0A%0APlease%20send%20the%20delivery%20readiness%20guide.%0A%0AName:%0ACompany:%0ALaunch%20timeline:%0A"
+          >Send me the guide</a
+        >
+        <span class="resource-note">No demo. No spam. Just the guide.</span>
+      </Card>
+      <div class="resource-list" data-reveal style="--delay: 140ms">
+        <Card className="resource-item">
+          <span class="panel-label">Checklist</span>
+          <h4>Release gate checklist</h4>
+          <p>Align QA, engineering, and product sign-offs in one place.</p>
+          <a href="#readiness">View readiness</a>
+        </Card>
+        <Card className="resource-item">
+          <span class="panel-label">Guide</span>
+          <h4>Engineering review guide</h4>
+          <p>Code review, refactor planning, and secure release validation.</p>
+          <a href="#security">View engineering</a>
+        </Card>
+        <Card className="resource-item">
+          <span class="panel-label">Metrics</span>
+          <h4>Launch impact metrics</h4>
+          <p>Track latency, error budgets, and delivery impact.</p>
+          <a href="#impact">View impact</a>
+        </Card>
+      </div>
+    </div>
+  </div>
+</Section>

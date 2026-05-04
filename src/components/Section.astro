@@ -1,0 +1,9 @@
+---
+const { id, className = "", reveal = true, class: classAttr, ...attrs } = Astro.props;
+const classes = ["section", className, classAttr].filter(Boolean).join(" ");
+const revealValue = reveal ? "section" : undefined;
+---
+
+<section id={id} class={classes} data-reveal={revealValue} {...attrs}>
+  <slot />
+</section>

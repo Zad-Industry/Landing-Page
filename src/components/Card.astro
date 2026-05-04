@@ -1,0 +1,9 @@
+---
+const { className = "", class: classAttr, as = "article", ...attrs } = Astro.props;
+const Tag = as;
+const classes = ["card", className, classAttr].filter(Boolean).join(" ");
+---
+
+<Tag class={classes} {...attrs}>
+  <slot />
+</Tag>

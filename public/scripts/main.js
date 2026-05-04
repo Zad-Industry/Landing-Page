@@ -148,20 +148,15 @@ const chartConfigs = {
     bars: [0.3, 0.42, 0.56, 0.64, 0.7, 0.78, 0.86, 0.9],
   },
   response: {
-    metric: { selector: "[data-metric='response']", prefix: "-", suffix: "%" },
+    metric: { selector: "[data-metric='response']", prefix: "+", suffix: "%" },
     range: { min: 30, max: 48, precision: 0 },
-    bars: [0.86, 0.78, 0.7, 0.62, 0.54, 0.46, 0.38, 0.3],
-  },
-  threats: {
-    metric: { selector: "[data-metric='threats']", prefix: "+", suffix: "%" },
-    range: { min: 12, max: 26, precision: 0 },
-    bars: [0.28, 0.42, 0.54, 0.66, 0.72, 0.82, 0.88, 0.94],
+    bars: [0.32, 0.44, 0.56, 0.68, 0.72, 0.8, 0.88, 0.94],
   },
 };
 
 const metricConfigs = {
   coverage: { prefix: "", suffix: "%", min: 78, max: 92, precision: 0 },
-  mttr: { prefix: "", suffix: " hrs", min: 24, max: 48, precision: 0 },
+  mttr: { prefix: "", suffix: "%", min: 1, max: 4, precision: 1 },
 };
 
 const randomBetween = (min, max, precision = 0) => {
@@ -476,7 +471,7 @@ const initMailtoSync = () => {
       const message = formData.get("message") || "";
 
       const bodyLines = [
-        "Hi Zad Team,",
+        "Hi Zad Industry team,",
         "",
         isFooter ? "Please add me to the updates list." : "Please send the requested materials.",
         "",

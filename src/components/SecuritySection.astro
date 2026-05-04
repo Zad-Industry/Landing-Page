@@ -1,31 +1,36 @@
-<section class="section security" id="security" data-reveal="section">
+---
+import Section from "./Section.astro";
+import ChartContainer from "./ChartContainer.astro";
+---
+
+<Section id="security" className="security">
   <div class="container">
     <div class="section-header" data-reveal>
-      <p class="eyebrow">Built-in security &amp; quality</p>
-      <h2>Security and testing are not add-ons -- they are built into everything we deliver.</h2>
+      <p class="eyebrow">Engineering standards</p>
+      <h2>Quality practices are built into every delivery.</h2>
     </div>
     <div class="security-feed" data-reveal style="--delay: 80ms">
       <div>
-        <p class="panel-label">Live security feed</p>
-        <h3>Blocked risks in the last 7 days</h3>
+        <p class="panel-label">Delivery checks</p>
+        <h3>Engineering signals tracked per release</h3>
       </div>
       <div class="security-tags">
-        <span>Auth abuse 214</span>
-        <span>Misconfig 98</span>
-        <span>API rate spikes 67</span>
-        <span>Dependency alerts 41</span>
+        <span>Test coverage</span>
+        <span>Refactor scope</span>
+        <span>Release stability</span>
+        <span>Secure coding checks</span>
       </div>
     </div>
     <div class="security-dashboard" data-reveal style="--delay: 120ms">
       <div class="security-metric">
         <div>
-          <span class="panel-label">Active coverage</span>
+          <span class="panel-label">Code quality</span>
           <strong data-metric="coverage">86%</strong>
         </div>
-        <p class="metric-note">Critical services monitored with automated scans.</p>
+        <p class="metric-note">Critical flows covered by automated tests.</p>
       </div>
-      <div class="security-graph" data-chart="threats">
-        <div class="chart-orbit" data-orbit="threats">
+      <ChartContainer className="security-graph" data-chart="quality" style="--chart-ratio: 16 / 9">
+        <div class="chart-orbit" data-orbit="quality">
           <span></span>
           <span></span>
           <span></span>
@@ -33,10 +38,10 @@
           <span></span>
         </div>
         <div class="chart-legend">
-          <span>Threats mitigated</span>
-          <span class="chart-value" data-metric="threats">+18%</span>
+          <span>Quality trend</span>
+          <span class="chart-value" data-metric="quality">+18%</span>
         </div>
-        <svg class="sparkline" viewBox="0 0 160 48" role="img" aria-label="Threat mitigation trend">
+        <svg class="sparkline" viewBox="0 0 160 48" role="img" aria-label="Quality trend">
           <path
             data-sparkline
             d="M4 38 C 20 30, 38 28, 56 22 C 74 18, 92 16, 110 12 C 128 10, 146 14, 156 8"
@@ -56,14 +61,14 @@
           <span style="--bar: 0.88"></span>
           <span style="--bar: 0.93"></span>
         </div>
-        <p class="chart-caption">Abuse blocks increase as traffic scales.</p>
-      </div>
+        <p class="chart-caption">Quality improves as refactors reduce complexity.</p>
+      </ChartContainer>
       <div class="security-metric">
         <div>
-          <span class="panel-label">Time to fix</span>
-          <strong data-metric="mttr">36 hrs</strong>
+          <span class="panel-label">Vulnerability reduction</span>
+          <strong data-metric="mttr">3.2%</strong>
         </div>
-        <p class="metric-note">Median time to remediate critical findings.</p>
+        <p class="metric-note">High-risk findings addressed during delivery.</p>
       </div>
     </div>
     <div class="security-grid">
@@ -75,20 +80,30 @@
           <li>Early bug detection</li>
           <li>Stable and predictable system behavior</li>
         </ul>
+        <div class="security-tags">
+          <span>Coverage gates</span>
+          <span>Static analysis</span>
+          <span>Regression suite</span>
+        </div>
       </article>
       <article class="card security-card" data-reveal style="--delay: 120ms">
-        <h3>DevSecOps Integration</h3>
-        <p>Security is embedded into our development lifecycle:</p>
+        <h3>Secure-by-default delivery</h3>
+        <p>Security is part of the engineering lifecycle, not a separate track:</p>
         <ul class="bullet-list">
-          <li>Secure coding practices</li>
-          <li>Continuous security checks</li>
-          <li>Dependency vulnerability scanning</li>
-          <li>CI/CD pipeline protection</li>
+          <li>Secure coding standards</li>
+          <li>Automated checks in CI/CD</li>
+          <li>Dependency and config reviews</li>
+          <li>Release validation steps</li>
         </ul>
+        <div class="security-tags">
+          <span>Pipeline checks</span>
+          <span>Review gates</span>
+          <span>Release docs</span>
+        </div>
       </article>
     </div>
     <p class="security-note" data-reveal style="--delay: 180ms">
-      Every system is delivered secure, tested, and production-ready.
+      Engineering standards are part of every build, not a separate service.
     </p>
   </div>
-</section>
+</Section>

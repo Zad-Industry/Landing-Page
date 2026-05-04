@@ -1,18 +1,41 @@
-<section class="section" id="about" data-reveal="section">
+---
+import Section from "./Section.astro";
+import Card from "./Card.astro";
+---
+
+<Section id="about">
   <div class="container section-grid">
     <div class="section-header" data-reveal>
       <p class="eyebrow">About us</p>
       <h2>
-        We are a software engineering partner helping startups ship secure systems without
-        rewriting later.
+        We are a software engineering partner helping startups ship reliable systems without
+        rewrites later.
       </h2>
-    </div>
-    <div class="section-body" data-reveal style="--delay: 120ms">
-      <p>
+      <p class="section-body">
         We turn early technical decisions into scalable foundations with clean architecture,
-        delivery guardrails, and hands-on product execution.
+        delivery guardrails, and secure coding built into the build plan.
       </p>
-      <p class="accent">Our approach is simple: ship safely now, scale confidently later.</p>
+      <p class="accent">Our approach is simple: ship now, scale confidently later.</p>
+    </div>
+    <div class="about-stack" data-reveal style="--delay: 120ms">
+      <Card className="about-card">
+        <span class="panel-label">What we deliver</span>
+        <h3>Launch-ready foundations</h3>
+        <p>Architecture, delivery gates, and observability that hold up under real traffic.</p>
+        <ul class="bullet-list">
+          <li>Release checklists with owners</li>
+          <li>System maps and risk registers</li>
+        </ul>
+      </Card>
+      <Card className="about-card">
+        <span class="panel-label">Who we support</span>
+        <h3>Founders and product leaders</h3>
+        <p>Teams shipping fast while still meeting engineering and security standards.</p>
+        <ul class="bullet-list">
+          <li>Regulated or sensitive domains</li>
+          <li>Growth and scale-ups</li>
+        </ul>
+      </Card>
     </div>
   </div>
-</section>
+</Section>

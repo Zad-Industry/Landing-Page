@@ -1,9 +1,11 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
 
 const {
-  title = "zad | Scalable, Secure Systems",
-  description = "zad builds scalable, secure software systems for startups and growing businesses.",
+  title = "Zad Industry | System Development & Engineering",
+  description =
+    "Zad Industry builds and improves software systems, features, and internal platforms for startups and growing businesses, with secure engineering built in.",
 } = Astro.props;
 const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "/og-image.svg";
 ---
@@ -15,21 +17,21 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="application-name" content="zad" />
-    <meta name="apple-mobile-web-app-title" content="zad" />
+    <meta name="application-name" content="Zad Industry" />
+    <meta name="apple-mobile-web-app-title" content="Zad Industry" />
     <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#070b11" />
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="zad" />
-    <link rel="canonical" href="https://zadindustry.com/" />
+    <meta name="author" content="Zad Industry" />
+    <link rel="canonical" href="https://zadindustry.tech/" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content="https://zadindustry.com/" />
-    <meta property="og:site_name" content="zad" />
+    <meta property="og:url" content="https://zadindustry.tech/" />
+    <meta property="og:site_name" content="Zad Industry" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:image:alt" content="zad security-first engineering" />
+    <meta property="og:image:alt" content="Zad Industry engineering systems" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
@@ -52,12 +54,12 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "zad",
-        "url": "https://zadindustry.com/",
-        "description": "zad builds scalable, secure software systems for startups and growing businesses.",
+        "name": "Zad Industry",
+        "url": "https://zadindustry.tech/",
+        "description": "Zad Industry builds and improves software systems, features, and internal platforms for startups and growing businesses, with secure engineering built in.",
         "foundingDate": "2026",
         "areaServed": "Worldwide",
-        "slogan": "Building scalable, secure systems from day one"
+        "slogan": "Building systems with secure-by-default engineering"
       }
     </script>
   </head>
@@ -67,34 +69,7 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
     <div class="bg-orb bg-orb-one" aria-hidden="true"></div>
     <div class="bg-orb bg-orb-two" aria-hidden="true"></div>
 
-    <header class="site-header">
-      <div class="container header-inner">
-        <div class="nav-shell">
-          <nav class="nav nav-pill" id="primary-nav" aria-label="Primary">
-            <span class="nav-indicator" aria-hidden="true"></span>
-            <a href="#top" class="nav-link is-active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#capabilities" class="nav-link">Capabilities</a>
-            <a href="#services" class="nav-link">What we do</a>
-            <a href="#security" class="nav-link">Security</a>
-            <a href="#process" class="nav-link">Process</a>
-            <a href="#contact" class="nav-link">Start</a>
-          </nav>
-          <div class="header-actions nav-actions">
-            <button
-              class="menu-toggle"
-              type="button"
-              aria-expanded="false"
-              aria-controls="primary-nav"
-            >
-              Menu
-            </button>
-            <a class="btn btn-ghost" href="#contact">Book a Call</a>
-            <a class="btn btn-primary" href="#contact">Get Started</a>
-          </div>
-        </div>
-      </div>
-    </header>
+    <Navbar />
 
     <slot />
 
@@ -104,8 +79,8 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
           <div>
             <span class="footer-logo">Zad Industry</span>
             <p>
-              Security-first engineering for startups and scaleups that need reliable delivery and
-              production-ready systems.
+              Engineering partner for system development, feature delivery, refactoring, and
+              internal platforms with secure coding built in.
             </p>
           </div>
           <form class="footer-form" aria-label="Subscribe" data-default-subject="Subscribe request from landing page">
@@ -120,9 +95,9 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
               class="footer-note footer-note-form"
               role="status"
               aria-live="polite"
-              data-default="No spam. Security, delivery, and readiness updates."
+                data-default="No spam. Engineering, delivery, and system updates."
             >
-              No spam. Security, delivery, and readiness updates.
+              No spam. Engineering, delivery, and system updates.
             </span>
           </form>
         </div>
@@ -131,7 +106,7 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
             <span class="footer-title">Solutions</span>
             <a href="#services">Services</a>
             <a href="#capabilities">Capabilities</a>
-            <a href="#security">Security</a>
+            <a href="#security">Engineering standards</a>
             <a href="#process">Process</a>
           </div>
           <div>
@@ -144,16 +119,16 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
           <div>
             <span class="footer-title">Resources</span>
             <a
-              href="mailto:m9nx11@gmail.com?subject=Delivery%20Readiness%20Worksheet%20Request&body=Hi%20Zad%20Team,%0A%0APlease%20send%20the%20delivery%20readiness%20worksheet.%0A%0AName:%0ACompany:%0ALaunch%20timeline:%0A"
-              >Delivery readiness worksheet</a
+              href="mailto:zad.industry.software@gmail.com?subject=Delivery%20Readiness%20Guide%20Request&body=Hi%20Zad%20Industry%20team,%0A%0APlease%20send%20the%20delivery%20readiness%20guide.%0A%0AName:%0ACompany:%0ALaunch%20timeline:%0A"
+              >Delivery readiness guide</a
             >
             <a href="#readiness">Release gate checklist</a>
-            <a href="#security">Security review guide</a>
+            <a href="#security">Engineering review guide</a>
             <a href="#impact">Launch impact metrics</a>
           </div>
           <div>
             <span class="footer-title">Contact</span>
-            <a href="mailto:m9nx11@gmail.com">m9nx11@gmail.com</a>
+            <a href="mailto:zad.industry.software@gmail.com">zad.industry.software@gmail.com</a>
             <a href="tel:+10000000000">+1 (000) 000-0000</a>
             <span class="footer-note">Worldwide delivery</span>
           </div>
@@ -162,18 +137,18 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
       <div class="container footer-bottom">
         <div class="footer-cta">
           <div>
-            <span class="footer-title">Delivery readiness kit</span>
-            <p>
-              Review SLOs, QA gates, and risk ownership before launch. We will send the worksheet
-              within 48 hours.
-            </p>
+          <span class="footer-title">Delivery readiness kit</span>
+          <p>
+            Review QA gates, system scope, and release owners before launch. We will send the guide
+            within 48 hours.
+          </p>
           </div>
           <div class="footer-actions">
             <a class="btn btn-primary" href="#contact-form">Start a project</a>
             <a
               class="btn btn-ghost"
-              href="mailto:m9nx11@gmail.com?subject=Delivery%20Readiness%20Worksheet%20Request&body=Hi%20Zad%20Team,%0A%0APlease%20send%20the%20delivery%20readiness%20worksheet.%0A%0AName:%0ACompany:%0ALaunch%20timeline:%0A"
-              >Get the readiness worksheet</a
+              href="mailto:zad.industry.software@gmail.com?subject=Delivery%20Readiness%20Guide%20Request&body=Hi%20Zad%20Industry%20team,%0A%0APlease%20send%20the%20delivery%20readiness%20guide.%0A%0AName:%0ACompany:%0ALaunch%20timeline:%0A"
+              >Get the readiness guide</a
             >
           </div>
         </div>

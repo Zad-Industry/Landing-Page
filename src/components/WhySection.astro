@@ -1,17 +1,43 @@
-<section class="section" id="why" data-reveal="section">
-  <div class="container section-grid">
+---
+import Section from "./Section.astro";
+import Card from "./Card.astro";
+---
+
+<Section id="why">
+  <div class="container">
     <div class="section-header" data-reveal>
-      <p class="eyebrow">Why zad</p>
+      <p class="eyebrow">Why Zad Industry</p>
       <h2>An engineering-first partner focused on quality and scale.</h2>
+      <p class="section-body">We bring senior execution and measurable outcomes from day one.</p>
     </div>
-    <div class="section-body" data-reveal style="--delay: 120ms">
-      <ul class="bullet-list">
-        <li>Security-first delivery without slowing velocity</li>
-        <li>Clear milestones, weekly demos, and decision logs</li>
-        <li>Systems designed to scale without rewrites</li>
-        <li>Production-grade documentation and handoff</li>
-        <li>Engineering partners who stay accountable</li>
-      </ul>
+    <div class="why-grid">
+      <Card className="why-card" data-reveal style="--delay: 80ms">
+        <span class="panel-label">Delivery clarity</span>
+        <h3>Weekly visibility</h3>
+        <p>Milestones, demo notes, and risk tracking so you know what shipped and what is next.</p>
+        <ul class="bullet-list">
+          <li>Decision logs and trade-offs</li>
+          <li>QA and readiness reviews</li>
+        </ul>
+      </Card>
+      <Card className="why-card" data-reveal style="--delay: 120ms">
+        <span class="panel-label">Engineering standards</span>
+        <h3>Quality built in</h3>
+        <p>White-box testing, secure coding standards, and automated checks in every release.</p>
+        <ul class="bullet-list">
+          <li>Test coverage and review gates</li>
+          <li>Release documentation</li>
+        </ul>
+      </Card>
+      <Card className="why-card" data-reveal style="--delay: 160ms">
+        <span class="panel-label">Scale readiness</span>
+        <h3>Performance that holds</h3>
+        <p>Systems designed to handle growth, bursts, and real-world traffic without rewrites.</p>
+        <ul class="bullet-list">
+          <li>Load testing + SLOs</li>
+          <li>Cost-aware scaling</li>
+        </ul>
+      </Card>
     </div>
   </div>
-</section>
+</Section>

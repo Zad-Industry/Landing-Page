@@ -1,34 +1,39 @@
-<section class="section readiness" id="readiness" data-reveal="section">
+---
+import Section from "./Section.astro";
+import ChartContainer from "./ChartContainer.astro";
+---
+
+<Section id="readiness" className="readiness">
   <div class="container">
     <div class="section-header" data-reveal>
-      <p class="eyebrow">Production readiness</p>
-      <h2>Operational guardrails that keep systems stable.</h2>
+      <p class="eyebrow">Production ready</p>
+      <h2>Launch with guardrails, not guesswork.</h2>
     </div>
       <div class="readiness-panel" data-reveal style="--delay: 80ms">
         <div>
           <p class="panel-label">Release readiness</p>
           <h3>We measure stability before every launch.</h3>
           <p class="section-body">
-            Error budgets, performance baselines, and compliance checks are reviewed before release.
+            Performance baselines, QA gates, and release notes are reviewed before rollout.
           </p>
         </div>
         <div class="panel-metrics">
           <div>
             <strong>98%</strong>
-            <span>Builds pass gates</span>
+            <span>Builds pass QA</span>
           </div>
           <div>
             <strong>0.9s</strong>
-            <span>P95 API latency</span>
+            <span>P95 latency</span>
           </div>
           <div>
             <strong>7 days</strong>
-            <span>Mean time to fix</span>
+            <span>Release cycle</span>
           </div>
         </div>
       </div>
       <div class="readiness-charts" data-reveal style="--delay: 120ms">
-        <div class="readiness-chart" data-chart="stability">
+        <ChartContainer className="readiness-chart" data-chart="stability" style="--chart-ratio: 16 / 9">
           <div class="chart-orbit" data-orbit="stability">
             <span></span>
             <span></span>
@@ -61,8 +66,8 @@
             <span style="--bar: 0.9"></span>
           </div>
           <p class="chart-caption">Fewer failed releases with pre-flight gating.</p>
-        </div>
-        <div class="readiness-chart" data-chart="response">
+        </ChartContainer>
+        <ChartContainer className="readiness-chart" data-chart="response" style="--chart-ratio: 16 / 9">
           <div class="chart-orbit" data-orbit="response">
             <span></span>
             <span></span>
@@ -71,10 +76,10 @@
             <span></span>
           </div>
           <div class="chart-legend">
-            <span>Incident response</span>
-            <span class="chart-value" data-metric="response">-41%</span>
+            <span>Deployment success rate</span>
+            <span class="chart-value" data-metric="response">+41%</span>
           </div>
-          <svg class="sparkline" viewBox="0 0 160 48" role="img" aria-label="Response time trend">
+          <svg class="sparkline" viewBox="0 0 160 48" role="img" aria-label="Deployment success trend">
             <path
               data-sparkline
               d="M4 12 C 22 16, 40 20, 58 24 C 76 28, 94 32, 112 36 C 130 38, 146 40, 156 42"
@@ -94,30 +99,50 @@
             <span style="--bar: 0.38"></span>
             <span style="--bar: 0.3"></span>
           </div>
-          <p class="chart-caption">Faster response with clearer escalation playbooks.</p>
-        </div>
+          <p class="chart-caption">Safer releases with automated checks and approvals.</p>
+        </ChartContainer>
       </div>
     <div class="readiness-grid">
       <article class="card readiness-card" data-reveal style="--delay: 60ms">
         <h3>Observability &amp; SLOs</h3>
         <p>Metrics, tracing, and alerting aligned with clear performance targets.</p>
+        <ul class="bullet-list">
+          <li>Error budgets per service</li>
+          <li>Latency guardrails</li>
+        </ul>
       </article>
       <article class="card readiness-card" data-reveal style="--delay: 120ms">
         <h3>CI/CD guardrails</h3>
-        <p>Secure pipelines with automated checks and deployment protection.</p>
+        <p>Automated checks and deployment protection baked into delivery.</p>
+        <ul class="bullet-list">
+          <li>Automated QA gates</li>
+          <li>Dependency and config checks</li>
+        </ul>
       </article>
       <article class="card readiness-card" data-reveal style="--delay: 180ms">
         <h3>Infrastructure as code</h3>
         <p>Repeatable environments, versioned changes, and predictable rollouts.</p>
+        <ul class="bullet-list">
+          <li>Environment parity</li>
+          <li>Rollback automation</li>
+        </ul>
       </article>
       <article class="card readiness-card" data-reveal style="--delay: 240ms">
         <h3>Performance tuning</h3>
         <p>Load testing, bottleneck analysis, and optimizations for speed.</p>
+        <ul class="bullet-list">
+          <li>Traffic surge testing</li>
+          <li>P95 latency reviews</li>
+        </ul>
       </article>
       <article class="card readiness-card" data-reveal style="--delay: 300ms">
         <h3>Documentation &amp; handoff</h3>
         <p>Clear system maps, runbooks, and onboarding that keep teams aligned.</p>
+        <ul class="bullet-list">
+          <li>Runbooks + incident drills</li>
+          <li>Knowledge transfer plans</li>
+        </ul>
       </article>
     </div>
   </div>
-</section>
+</Section>

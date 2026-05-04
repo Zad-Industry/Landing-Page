@@ -1,64 +1,35 @@
-<section class="section impact" id="impact" data-reveal="section">
+---
+import Section from "./Section.astro";
+import ChartContainer from "./ChartContainer.astro";
+---
+
+<Section id="impact" className="impact">
   <div class="container impact-grid">
     <div class="impact-copy" data-reveal>
-      <p class="eyebrow">Production ready</p>
-      <h2>Launch with guardrails, not guesswork.</h2>
+      <p class="eyebrow">Delivery outcomes</p>
+      <h2>Ship system improvements with measurable impact.</h2>
       <p class="lead">
-        We harden delivery paths with security reviews, staged gates, and real-time observability so
-        launches stay stable the moment real users arrive.
+        We align engineering work to business impact: faster response times, fewer failures, and
+        smoother user flows after each release, with security built into the engineering process.
       </p>
       <ul class="impact-list">
-        <li>Risk register with owners, timelines, and mitigation plans</li>
-        <li>Release playbooks, rollback drills, and QA sign-offs</li>
-        <li>SLOs, alerting, and escalation paths for on-call readiness</li>
+        <li>Performance baselines and regression checks</li>
+        <li>Refactor plans tied to measurable outcomes</li>
+        <li>Release plans with clear owners and quality gates</li>
       </ul>
       <div class="impact-actions">
         <a class="btn btn-primary" href="#contact">Request a roadmap</a>
       </div>
-      <p class="impact-note">Get a delivery plan and risk map within 48 hours.</p>
+      <p class="impact-note">Get a delivery plan with scope, timeline, and milestones.</p>
     </div>
     <div class="impact-side">
-      <div class="impact-stats" data-reveal style="--delay: 120ms">
-        <div class="impact-stat">
-          <span class="impact-number">0.08%</span>
-          <p>Error rate targets that keep user sessions stable.</p>
-        </div>
-        <div class="impact-stat">
-          <span class="impact-number">45 min</span>
-          <p>Incident response time with escalation clarity.</p>
-        </div>
-        <div class="impact-stat">
-          <span class="impact-number">3x</span>
-          <p>Throughput gains after performance tuning.</p>
-        </div>
-      </div>
-      <div class="impact-proof" data-reveal style="--delay: 160ms">
-        <p class="panel-label">Proof points</p>
-        <div class="proof-grid">
-          <article class="proof-card">
-            <h3>Fintech launch</h3>
-            <p>Onboarding time cut 38% in six weeks.</p>
-            <span class="proof-meta">Risk register + release gates</span>
-          </article>
-          <article class="proof-card">
-            <h3>Marketplace scale</h3>
-            <p>4x traffic handled with zero downtime.</p>
-            <span class="proof-meta">Performance tuning + SLOs</span>
-          </article>
-          <article class="proof-card">
-            <h3>Health platform</h3>
-            <p>Compliance-ready infrastructure in 30 days.</p>
-            <span class="proof-meta">Audit trails + incident runbooks</span>
-          </article>
-        </div>
-      </div>
       <div class="impact-panel" data-reveal style="--delay: 200ms">
         <div class="impact-panel-header">
           <div>
-            <span class="panel-label">End-user impact</span>
+            <span class="panel-label">Engineering impact</span>
             <strong>Last 30 days</strong>
           </div>
-          <span class="panel-chip">Live</span>
+          <span class="panel-chip">Updated</span>
         </div>
         <div class="chart-orbit" data-orbit="latency">
           <span></span>
@@ -67,75 +38,136 @@
           <span></span>
           <span></span>
         </div>
-        <div class="impact-chart" data-chart="latency">
-            <div class="chart-legend">
-              <span>Median latency</span>
-              <span class="chart-value" data-metric="latency">-32%</span>
-            </div>
-            <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Latency trend">
-              <path
-                data-sparkline
-                d="M4 32 C 18 18, 28 30, 42 22 C 56 14, 70 18, 84 10 C 98 2, 114 8, 136 6"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-            </svg>
-            <div class="chart-bars" data-bars aria-hidden="true">
-              <span style="--bar: 0.35"></span>
-              <span style="--bar: 0.5"></span>
-              <span style="--bar: 0.6"></span>
-              <span style="--bar: 0.72"></span>
-              <span style="--bar: 0.68"></span>
-              <span style="--bar: 0.82"></span>
-              <span style="--bar: 0.9"></span>
-              <span style="--bar: 0.95"></span>
-            </div>
-            <p class="chart-caption">Traffic climbs while error rates stay below 0.1%.</p>
+        <ChartContainer className="impact-chart" data-chart="latency" style="--chart-ratio: 16 / 9">
+          <div class="chart-legend">
+            <span>Latency reduction</span>
+            <span class="chart-value" data-metric="latency">-32%</span>
           </div>
-        <div class="impact-chart secondary" data-chart="conversion">
-            <div class="chart-legend">
-              <span>Conversion rate</span>
-              <span class="chart-value" data-metric="conversion">+14%</span>
-            </div>
-            <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Conversion trend">
-              <path
-                data-sparkline
-                d="M4 34 C 18 30, 28 26, 42 20 C 56 16, 70 18, 84 12 C 98 8, 114 10, 136 6"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="3"
-                stroke-linecap="round"
-              />
-            </svg>
-            <div class="chart-bars" data-bars aria-hidden="true">
-              <span style="--bar: 0.4"></span>
-              <span style="--bar: 0.46"></span>
-              <span style="--bar: 0.55"></span>
-              <span style="--bar: 0.62"></span>
-              <span style="--bar: 0.72"></span>
-              <span style="--bar: 0.8"></span>
-              <span style="--bar: 0.88"></span>
-              <span style="--bar: 0.92"></span>
-            </div>
-            <p class="chart-caption">Higher speed translates to more completed sessions.</p>
+          <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Latency reduction trend">
+            <path
+              data-sparkline
+              d="M4 32 C 18 18, 28 30, 42 22 C 56 14, 70 18, 84 10 C 98 2, 114 8, 136 6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="chart-bars" data-bars aria-hidden="true">
+            <span style="--bar: 0.35"></span>
+            <span style="--bar: 0.5"></span>
+            <span style="--bar: 0.6"></span>
+            <span style="--bar: 0.72"></span>
+            <span style="--bar: 0.68"></span>
+            <span style="--bar: 0.82"></span>
+            <span style="--bar: 0.9"></span>
+            <span style="--bar: 0.95"></span>
           </div>
-          <div class="impact-footer">
-            <div>
-              <strong>99.95%</strong>
-              <span>Uptime</span>
-            </div>
-            <div>
-              <strong>1.8s</strong>
-              <span>Median response</span>
-            </div>
-            <div>
-              <strong>+14%</strong>
-              <span>Conversion lift</span>
-            </div>
+          <p class="chart-caption">Latency drops after performance refactors.</p>
+        </ChartContainer>
+        <ChartContainer className="impact-chart secondary" data-chart="conversion" style="--chart-ratio: 16 / 9">
+          <div class="chart-legend">
+            <span>System throughput</span>
+            <span class="chart-value" data-metric="conversion">+14%</span>
+          </div>
+          <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Throughput trend">
+            <path
+              data-sparkline
+              d="M4 34 C 18 30, 28 26, 42 20 C 56 16, 70 18, 84 12 C 98 8, 114 10, 136 6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="chart-bars" data-bars aria-hidden="true">
+            <span style="--bar: 0.4"></span>
+            <span style="--bar: 0.46"></span>
+            <span style="--bar: 0.55"></span>
+            <span style="--bar: 0.62"></span>
+            <span style="--bar: 0.72"></span>
+            <span style="--bar: 0.8"></span>
+            <span style="--bar: 0.88"></span>
+            <span style="--bar: 0.92"></span>
+          </div>
+          <p class="chart-caption">Higher request volume after scaling improvements.</p>
+        </ChartContainer>
+        <ChartContainer className="impact-chart tertiary" data-chart="retention" style="--chart-ratio: 16 / 9">
+          <div class="chart-legend">
+            <span>Refactor impact</span>
+            <span class="chart-value" data-metric="retention">+11%</span>
+          </div>
+          <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Refactor impact trend">
+            <path
+              data-sparkline
+              d="M4 30 C 22 28, 40 26, 58 20 C 76 16, 94 14, 112 12 C 120 10, 132 12, 136 10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="chart-bars" data-bars aria-hidden="true">
+            <span style="--bar: 0.34"></span>
+            <span style="--bar: 0.42"></span>
+            <span style="--bar: 0.5"></span>
+            <span style="--bar: 0.58"></span>
+            <span style="--bar: 0.66"></span>
+            <span style="--bar: 0.74"></span>
+            <span style="--bar: 0.82"></span>
+            <span style="--bar: 0.9"></span>
+          </div>
+          <p class="chart-caption">Reduced complexity improves stability.</p>
+        </ChartContainer>
+        <div class="impact-footer">
+          <div>
+            <strong>99.95%</strong>
+            <span>Uptime</span>
+          </div>
+          <div>
+            <strong>1.8s</strong>
+            <span>Median response</span>
+          </div>
+          <div>
+            <strong>+14%</strong>
+            <span>Throughput gain</span>
           </div>
         </div>
       </div>
+      <div class="impact-stats" data-reveal style="--delay: 120ms">
+        <div class="impact-stat">
+          <span class="impact-number">-32%</span>
+          <p>Median latency after performance tuning.</p>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-number">+14%</span>
+          <p>Throughput lift after system scaling.</p>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-number">3x</span>
+          <p>Feature throughput after architecture restructuring.</p>
+        </div>
+      </div>
+      <div class="impact-proof" data-reveal style="--delay: 160ms">
+        <p class="panel-label">Proof points</p>
+        <div class="proof-grid">
+          <article class="proof-card">
+            <h3>Fintech onboarding</h3>
+            <p>Onboarding time cut 38% in six weeks.</p>
+            <span class="proof-meta">System refactor + flow cleanup</span>
+          </article>
+          <article class="proof-card">
+            <h3>Marketplace scale</h3>
+            <p>4x traffic handled after architecture restructuring.</p>
+            <span class="proof-meta">Caching + service boundaries</span>
+          </article>
+          <article class="proof-card">
+            <h3>Health platform</h3>
+            <p>Portal rebuild shipped in 30 days.</p>
+            <span class="proof-meta">Dashboard + data workflows</span>
+          </article>
+        </div>
+      </div>
     </div>
-  </section>
+  </div>
+</Section>

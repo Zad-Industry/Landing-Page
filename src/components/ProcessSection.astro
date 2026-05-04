@@ -1,37 +1,59 @@
-<section class="section" id="process" data-reveal="section">
+---
+import Section from "./Section.astro";
+import Card from "./Card.astro";
+---
+
+<Section id="process">
   <div class="container">
     <div class="section-header" data-reveal>
       <p class="eyebrow">Our process</p>
-      <h2>Clear steps to move from idea to secure delivery.</h2>
+      <h2>Clear steps to move from idea to production delivery.</h2>
       <p class="section-body">
-        Every step includes security checks, QA, and release readiness so you never ship blind.
+        Every step includes engineering checks, QA, and secure delivery gates so you never ship
+        blind.
       </p>
     </div>
     <div class="process-grid">
-      <div class="card process-step" data-reveal style="--delay: 40ms">
+      <Card className="process-step" data-reveal style="--delay: 40ms">
         <span class="step-number">01</span>
         <h3>Discovery</h3>
-        <p>We analyze your product goals, constraints, and current system risks.</p>
+        <p>We analyze your product goals, constraints, and current system gaps.</p>
+        <ul class="bullet-list">
+          <li>Risk register + ownership</li>
+          <li>Critical path mapping</li>
+        </ul>
         <span class="step-meta">2-3 days</span>
-      </div>
-      <div class="card process-step" data-reveal style="--delay: 80ms">
+      </Card>
+      <Card className="process-step" data-reveal style="--delay: 80ms">
         <span class="step-number">02</span>
         <h3>Plan</h3>
         <p>We deliver a scope, delivery roadmap, and architecture decisions.</p>
+        <ul class="bullet-list">
+          <li>Milestones + QA gates</li>
+          <li>Engineering review checklist</li>
+        </ul>
         <span class="step-meta">5-7 days</span>
-      </div>
-      <div class="card process-step" data-reveal style="--delay: 120ms">
+      </Card>
+      <Card className="process-step" data-reveal style="--delay: 120ms">
         <span class="step-number">03</span>
         <h3>Ship</h3>
-        <p>We build secure, tested releases with weekly demos and milestones.</p>
+        <p>We build tested releases with weekly demos and milestones.</p>
+        <ul class="bullet-list">
+          <li>Weekly demos + release notes</li>
+          <li>Secure build checks</li>
+        </ul>
         <span class="step-meta">2-week cadence</span>
-      </div>
-      <div class="card process-step" data-reveal style="--delay: 160ms">
+      </Card>
+      <Card className="process-step" data-reveal style="--delay: 160ms">
         <span class="step-number">04</span>
         <h3>Operate</h3>
         <p>We monitor, harden, and optimize for real traffic and growth.</p>
+        <ul class="bullet-list">
+          <li>On-call readiness</li>
+          <li>Continuous risk reporting</li>
+        </ul>
         <span class="step-meta">Ongoing</span>
-      </div>
+      </Card>
     </div>
   </div>
-</section>
+</Section>
