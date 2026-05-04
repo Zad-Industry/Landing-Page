@@ -116,6 +116,7 @@ const contactForm = document.querySelector(".contact-form");
 const formNote = document.querySelector(".form-note");
 const footerForm = document.querySelector(".footer-form");
 const footerNote = document.querySelector(".footer-note-form");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const showFormStatus = (noteEl, message) => {
   if (!noteEl) {
@@ -180,6 +181,83 @@ const toPath = (values, height, width) => {
     .join(" ");
 };
 
+const easeOutCubic = (value) => 1 - Math.pow(1 - value, 3);
+
+const formatMetric = (value, prefix, suffix, precision) => {
+  const numeric = precision === 0 ? Math.round(value) : Number(value).toFixed(precision);
+  const numericValue = Number(numeric);
+  const safePrefix = numericValue === 0 ? "" : prefix;
+  return `${safePrefix}${numeric}${suffix}`;
+};
+
+const readMetricValue = (node) => {
+  const dataValue = node?.dataset?.value;
+  if (dataValue) {
+    const parsed = Number(dataValue);
+    if (!Number.isNaN(parsed)) {
+      return parsed;
+    }
+  }
+  const raw = node?.textContent || "";
+  const parsed = Number.parseFloat(raw.replace(/[^0-9.-]/g, ""));
+  return Number.isNaN(parsed) ? 0 : parsed;
+};
+
+const setMetricValue = (node, value, prefix, suffix, precision) => {
+  if (!node) {
+    return;
+  }
+  node.dataset.value = String(value);
+  node.textContent = formatMetric(value, prefix, suffix, precision);
+};
+
+const animateMetricValue = (node, fromValue, toValue, config, duration = 1200) => {
+  if (!node) {
+    return;
+  }
+  if (prefersReducedMotion) {
+    setMetricValue(node, toValue, config.prefix, config.suffix, config.precision || 0);
+    return;
+  }
+  const start = performance.now();
+  const tick = (now) => {
+    const progress = Math.min(1, (now - start) / duration);
+    const eased = easeOutCubic(progress);
+    const value = fromValue + (toValue - fromValue) * eased;
+    setMetricValue(node, value, config.prefix, config.suffix, config.precision || 0);
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    }
+  };
+  requestAnimationFrame(tick);
+};
+
+const animateSeries = (fromValues, toValues, duration, onUpdate, onComplete) => {
+  if (prefersReducedMotion) {
+    onUpdate(toValues);
+    if (onComplete) {
+      onComplete();
+    }
+    return;
+  }
+  const start = performance.now();
+  const tick = (now) => {
+    const progress = Math.min(1, (now - start) / duration);
+    const eased = easeOutCubic(progress);
+    const values = toValues.map((value, index) => {
+      const from = fromValues[index] ?? 0;
+      return from + (value - from) * eased;
+    });
+    onUpdate(values);
+    if (progress < 1) {
+      requestAnimationFrame(tick);
+    } else if (onComplete) {
+      onComplete();
+    }
+  };
+  requestAnimationFrame(tick);
+};
+
 const updateBars = (bars, values) => {
   bars.forEach((bar, index) => {
     const value = values[index] ?? values[values.length - 1] ?? 0.5;
@@ -206,25 +284,72 @@ const animateChart = (chart, config) => {
   const metricNode = chart.querySelector(config.metric.selector);
   const duration = 6000 + Math.random() * 2000;
 
+  const targetValue = randomBetween(config.range.min, config.range.max, config.range.precision);
+  const metricConfig = {
+    prefix: config.metric.prefix,
+    suffix: config.metric.suffix,
+    precision: config.range.precision,
+  };
+
   let values = config.bars.slice();
-  const tick = () => {
-    values = nudgeValues(values);
-    updateBars(bars, values);
+  const baseValues = values.map(() => 0.05);
+  const applyValues = (nextValues) => {
+    updateBars(bars, nextValues);
     if (path) {
-      updateSparkline(path, values);
-    }
-    if (metricNode) {
-      const value = randomBetween(config.range.min, config.range.max, config.range.precision);
-      metricNode.textContent = `${config.metric.prefix}${value}${config.metric.suffix}`;
+      updateSparkline(path, nextValues);
     }
   };
 
-  updateBars(bars, values);
-  if (path) {
-    updateSparkline(path, values);
+  const runTick = () => {
+    const nextValues = nudgeValues(values);
+    animateSeries(values, nextValues, 1200, applyValues, () => {
+      values = nextValues;
+    });
+    if (metricNode) {
+      const nextValue = randomBetween(config.range.min, config.range.max, config.range.precision);
+      const currentValue = readMetricValue(metricNode);
+      animateMetricValue(metricNode, currentValue, nextValue, metricConfig, 1200);
+    }
+  };
+
+  applyValues(baseValues);
+  if (metricNode) {
+    setMetricValue(metricNode, 0, metricConfig.prefix, metricConfig.suffix, metricConfig.precision);
   }
-  tick();
-  window.setInterval(tick, duration);
+
+  animateSeries(baseValues, values, 1300, applyValues, () => {
+    if (metricNode) {
+      animateMetricValue(metricNode, 0, targetValue, metricConfig, 1200);
+    }
+    if (!prefersReducedMotion) {
+      window.setInterval(runTick, duration);
+    }
+  });
+};
+
+const primeChart = (chart, config) => {
+  const bars = Array.from(chart.querySelectorAll("[data-bars] span"));
+  const path = chart.querySelector("[data-sparkline]");
+  const metricNode = chart.querySelector(config.metric.selector);
+  const baseValues = config.bars.map(() => 0.05);
+  updateBars(bars, baseValues);
+  if (path) {
+    updateSparkline(path, baseValues);
+  }
+  if (metricNode) {
+    setMetricValue(metricNode, 0, config.metric.prefix, config.metric.suffix, config.range.precision);
+  }
+};
+
+const primeMetrics = () => {
+  Object.keys(metricConfigs).forEach((key) => {
+    const config = metricConfigs[key];
+    const metricNode = document.querySelector(`[data-metric='${key}']`);
+    if (!metricNode) {
+      return;
+    }
+    setMetricValue(metricNode, 0, config.prefix, config.suffix, config.precision);
+  });
 };
 
 const scatterOrbits = () => {
@@ -232,8 +357,10 @@ const scatterOrbits = () => {
   orbits.forEach((orbit) => {
     const dots = Array.from(orbit.querySelectorAll("span"));
     dots.forEach((dot) => {
-      const x = Math.round(Math.random() * 88) + 4;
-      const y = Math.round(Math.random() * 88) + 4;
+      const edge = Math.floor(Math.random() * 4);
+      const offset = Math.round(Math.random() * 88) + 4;
+      const x = edge === 0 ? 4 : edge === 1 ? 96 : offset;
+      const y = edge === 2 ? 4 : edge === 3 ? 96 : offset;
       dot.style.setProperty("--orbit-x", `${x}%`);
       dot.style.setProperty("--orbit-y", `${y}%`);
       dot.style.setProperty("--orbit-delay", `${Math.random() * -6}s`);
@@ -242,32 +369,97 @@ const scatterOrbits = () => {
   });
 };
 
+const initMetricObserver = () => {
+  const metrics = document.querySelectorAll("[data-metric='coverage'], [data-metric='mttr']");
+  if (!metrics.length) {
+    return;
+  }
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        const node = entry.target;
+        if (node.dataset.animated === "true") {
+          return;
+        }
+        node.dataset.animated = "true";
+        const key = node.getAttribute("data-metric");
+        const config = metricConfigs[key];
+        if (!config) {
+          return;
+        }
+        const target = randomBetween(config.min, config.max, config.precision);
+        animateMetricValue(node, 0, target, config, 1200);
+        if (!prefersReducedMotion) {
+          window.setInterval(() => {
+            const nextValue = randomBetween(config.min, config.max, config.precision);
+            const currentValue = readMetricValue(node);
+            animateMetricValue(node, currentValue, nextValue, config, 1200);
+          }, 5200 + Math.random() * 1800);
+        }
+        observer.unobserve(node);
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  metrics.forEach((node) => observer.observe(node));
+};
+
 const initCharts = () => {
   const charts = document.querySelectorAll("[data-chart]");
+  if (!charts.length) {
+    return;
+  }
   charts.forEach((chart) => {
     const type = chart.getAttribute("data-chart");
     const config = chartConfigs[type];
-    if (!config) {
-      return;
+    if (config) {
+      primeChart(chart, config);
     }
-    animateChart(chart, config);
   });
+  primeMetrics();
+  if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    charts.forEach((chart) => {
+      const type = chart.getAttribute("data-chart");
+      const config = chartConfigs[type];
+      if (!config) {
+        return;
+      }
+      animateChart(chart, config);
+    });
+    scatterOrbits();
+    initMetricObserver();
+    return;
+  }
 
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        const chart = entry.target;
+        if (chart.dataset.animated === "true") {
+          return;
+        }
+        chart.dataset.animated = "true";
+        const type = chart.getAttribute("data-chart");
+        const config = chartConfigs[type];
+        if (config) {
+          animateChart(chart, config);
+        }
+        observer.unobserve(chart);
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  charts.forEach((chart) => observer.observe(chart));
   scatterOrbits();
-
-  Object.keys(metricConfigs).forEach((key) => {
-    const config = metricConfigs[key];
-    const metricNode = document.querySelector(`[data-metric='${key}']`);
-    if (!metricNode) {
-      return;
-    }
-    const updateMetric = () => {
-      const value = randomBetween(config.min, config.max, config.precision);
-      metricNode.textContent = `${config.prefix}${value}${config.suffix}`;
-    };
-    updateMetric();
-    window.setInterval(updateMetric, 5200 + Math.random() * 1800);
-  });
+  initMetricObserver();
 };
 
 const initMailtoSync = () => {
