@@ -151,11 +151,15 @@ const chartConfigs = {
     range: { min: 30, max: 48, precision: 0 },
     bars: [0.86, 0.78, 0.7, 0.62, 0.54, 0.46, 0.38, 0.3],
   },
+  threats: {
+    metric: { selector: "[data-metric='threats']", prefix: "+", suffix: "%" },
+    range: { min: 12, max: 26, precision: 0 },
+    bars: [0.28, 0.42, 0.54, 0.66, 0.72, 0.82, 0.88, 0.94],
+  },
 };
 
 const metricConfigs = {
   coverage: { prefix: "", suffix: "%", min: 78, max: 92, precision: 0 },
-  threats: { prefix: "+", suffix: "%", min: 12, max: 26, precision: 0 },
   mttr: { prefix: "", suffix: " hrs", min: 24, max: 48, precision: 0 },
 };
 
@@ -176,14 +180,10 @@ const toPath = (values, height, width) => {
     .join(" ");
 };
 
-const updateBars = (bars, values, animate = true) => {
+const updateBars = (bars, values) => {
   bars.forEach((bar, index) => {
     const value = values[index] ?? values[values.length - 1] ?? 0.5;
-    if (animate) {
-      bar.style.setProperty("--bar", value);
-    } else {
-      bar.style.setProperty("--bar", value);
-    }
+    bar.style.setProperty("--bar", value);
   });
 };
 
@@ -200,6 +200,48 @@ const nudgeValues = (values, delta = 0.08) =>
     return Math.min(0.98, Math.max(0.12, value + change));
   });
 
+const animateChart = (chart, config) => {
+  const bars = Array.from(chart.querySelectorAll("[data-bars] span"));
+  const path = chart.querySelector("[data-sparkline]");
+  const metricNode = chart.querySelector(config.metric.selector);
+  const duration = 6000 + Math.random() * 2000;
+
+  let values = config.bars.slice();
+  const tick = () => {
+    values = nudgeValues(values);
+    updateBars(bars, values);
+    if (path) {
+      updateSparkline(path, values);
+    }
+    if (metricNode) {
+      const value = randomBetween(config.range.min, config.range.max, config.range.precision);
+      metricNode.textContent = `${config.metric.prefix}${value}${config.metric.suffix}`;
+    }
+  };
+
+  updateBars(bars, values);
+  if (path) {
+    updateSparkline(path, values);
+  }
+  tick();
+  window.setInterval(tick, duration);
+};
+
+const scatterOrbits = () => {
+  const orbits = document.querySelectorAll("[data-orbit]");
+  orbits.forEach((orbit) => {
+    const dots = Array.from(orbit.querySelectorAll("span"));
+    dots.forEach((dot) => {
+      const x = Math.round(Math.random() * 88) + 4;
+      const y = Math.round(Math.random() * 88) + 4;
+      dot.style.setProperty("--orbit-x", `${x}%`);
+      dot.style.setProperty("--orbit-y", `${y}%`);
+      dot.style.setProperty("--orbit-delay", `${Math.random() * -6}s`);
+      dot.style.setProperty("--orbit-scale", `${0.7 + Math.random() * 0.6}`);
+    });
+  });
+};
+
 const initCharts = () => {
   const charts = document.querySelectorAll("[data-chart]");
   charts.forEach((chart) => {
@@ -208,29 +250,10 @@ const initCharts = () => {
     if (!config) {
       return;
     }
-
-    const metricNode = chart.querySelector(config.metric.selector);
-    if (metricNode) {
-      const value = randomBetween(config.range.min, config.range.max, config.range.precision);
-      metricNode.textContent = `${config.metric.prefix}${value}${config.metric.suffix}`;
-    }
-
-    const bars = Array.from(chart.querySelectorAll("[data-bars] span"));
-    const path = chart.querySelector("[data-sparkline]");
-    let values = config.bars.slice();
-    updateBars(bars, values, false);
-    if (path) {
-      updateSparkline(path, values);
-    }
-
-    setInterval(() => {
-      values = nudgeValues(values);
-      updateBars(bars, values);
-      if (path) {
-        updateSparkline(path, values);
-      }
-    }, 4200 + Math.random() * 1200);
+    animateChart(chart, config);
   });
+
+  scatterOrbits();
 
   Object.keys(metricConfigs).forEach((key) => {
     const config = metricConfigs[key];
@@ -238,12 +261,12 @@ const initCharts = () => {
     if (!metricNode) {
       return;
     }
-    const value = randomBetween(config.min, config.max, config.precision);
-    metricNode.textContent = `${config.prefix}${value}${config.suffix}`;
-    setInterval(() => {
-      const nextValue = randomBetween(config.min, config.max, config.precision);
-      metricNode.textContent = `${config.prefix}${nextValue}${config.suffix}`;
-    }, 5200 + Math.random() * 1800);
+    const updateMetric = () => {
+      const value = randomBetween(config.min, config.max, config.precision);
+      metricNode.textContent = `${config.prefix}${value}${config.suffix}`;
+    };
+    updateMetric();
+    window.setInterval(updateMetric, 5200 + Math.random() * 1800);
   });
 };
 

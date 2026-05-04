@@ -106,7 +106,7 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
               production-ready systems.
             </p>
           </div>
-          <form class="footer-form" aria-label="Subscribe">
+          <form class="footer-form" aria-label="Subscribe" data-default-subject="Subscribe request from landing page">
             <label>
               Stay in the loop
               <div class="footer-input">
@@ -141,10 +141,13 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
           </div>
           <div>
             <span class="footer-title">Resources</span>
-            <a href="#impact">Impact metrics</a>
-            <a href="#readiness">Readiness checklist</a>
-            <a href="#security">Security playbook</a>
-            <a href="#contact-form">Audit worksheet</a>
+            <a
+              href="mailto:m9nx11@gmail.com?subject=Delivery%20Readiness%20Worksheet%20Request&body=Hi%20Zad%20Team,%0A%0APlease%20send%20the%20delivery%20readiness%20worksheet.%0A%0AName:%0ACompany:%0ALaunch%20timeline:%0A"
+              >Delivery readiness worksheet</a
+            >
+            <a href="#readiness">Release gate checklist</a>
+            <a href="#security">Security review guide</a>
+            <a href="#impact">Launch impact metrics</a>
           </div>
           <div>
             <span class="footer-title">Contact</span>
@@ -157,12 +160,19 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
       <div class="container footer-bottom">
         <div class="footer-cta">
           <div>
-            <span class="footer-title">Ready to ship?</span>
-            <p>Tell us your launch window. We will send a delivery plan in 48 hours.</p>
+            <span class="footer-title">Delivery readiness kit</span>
+            <p>
+              Review SLOs, QA gates, and risk ownership before launch. We will send the worksheet
+              within 48 hours.
+            </p>
           </div>
           <div class="footer-actions">
             <a class="btn btn-primary" href="#contact-form">Start a project</a>
-            <a class="btn btn-ghost" href="#contact-form">Get the audit worksheet</a>
+            <a
+              class="btn btn-ghost"
+              href="mailto:m9nx11@gmail.com?subject=Delivery%20Readiness%20Worksheet%20Request&body=Hi%20Zad%20Team,%0A%0APlease%20send%20the%20delivery%20readiness%20worksheet.%0A%0AName:%0ACompany:%0ALaunch%20timeline:%0A"
+              >Get the readiness worksheet</a
+            >
           </div>
         </div>
         <div class="footer-meta">
