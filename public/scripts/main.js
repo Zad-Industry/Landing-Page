@@ -117,18 +117,174 @@ const formNote = document.querySelector(".form-note");
 const footerForm = document.querySelector(".footer-form");
 const footerNote = document.querySelector(".footer-note-form");
 
-if (contactForm && formNote) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    formNote.textContent = "Thanks. We have your request and will respond within 24 hours.";
-    contactForm.reset();
-  });
-}
+const showFormStatus = (noteEl, message) => {
+  if (!noteEl) {
+    return;
+  }
+  noteEl.textContent = message;
+  const defaultMessage = noteEl.dataset.default;
+  if (defaultMessage) {
+    window.setTimeout(() => {
+      noteEl.textContent = defaultMessage;
+    }, 4200);
+  }
+};
 
-if (footerForm && footerNote) {
-  footerForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    footerNote.textContent = "Subscribed. Expect a monthly delivery update.";
-    footerForm.reset();
+const chartConfigs = {
+  latency: {
+    metric: { selector: "[data-metric='latency']", prefix: "-", suffix: "%" },
+    range: { min: 22, max: 38, precision: 0 },
+    bars: [0.32, 0.46, 0.58, 0.7, 0.64, 0.78, 0.86, 0.92],
+  },
+  conversion: {
+    metric: { selector: "[data-metric='conversion']", prefix: "+", suffix: "%" },
+    range: { min: 9, max: 18, precision: 0 },
+    bars: [0.38, 0.44, 0.54, 0.6, 0.7, 0.8, 0.86, 0.9],
+  },
+  stability: {
+    metric: { selector: "[data-metric='stability']", prefix: "+", suffix: "%" },
+    range: { min: 14, max: 28, precision: 0 },
+    bars: [0.3, 0.42, 0.56, 0.64, 0.7, 0.78, 0.86, 0.9],
+  },
+  response: {
+    metric: { selector: "[data-metric='response']", prefix: "-", suffix: "%" },
+    range: { min: 30, max: 48, precision: 0 },
+    bars: [0.86, 0.78, 0.7, 0.62, 0.54, 0.46, 0.38, 0.3],
+  },
+};
+
+const metricConfigs = {
+  coverage: { prefix: "", suffix: "%", min: 78, max: 92, precision: 0 },
+  threats: { prefix: "+", suffix: "%", min: 12, max: 26, precision: 0 },
+  mttr: { prefix: "", suffix: " hrs", min: 24, max: 48, precision: 0 },
+};
+
+const randomBetween = (min, max, precision = 0) => {
+  const value = Math.random() * (max - min) + min;
+  const factor = 10 ** precision;
+  return Math.round(value * factor) / factor;
+};
+
+const toPath = (values, height, width) => {
+  const step = (width - 8) / (values.length - 1);
+  return values
+    .map((value, index) => {
+      const x = 4 + step * index;
+      const y = 4 + (1 - value) * (height - 8);
+      return `${index === 0 ? "M" : "C"} ${x} ${y}`;
+    })
+    .join(" ");
+};
+
+const updateBars = (bars, values, animate = true) => {
+  bars.forEach((bar, index) => {
+    const value = values[index] ?? values[values.length - 1] ?? 0.5;
+    if (animate) {
+      bar.style.setProperty("--bar", value);
+    } else {
+      bar.style.setProperty("--bar", value);
+    }
   });
-}
+};
+
+const updateSparkline = (path, values) => {
+  const viewBox = path.closest("svg")?.getAttribute("viewBox") || "0 0 160 48";
+  const [, , width, height] = viewBox.split(" ").map(Number);
+  const d = toPath(values, height, width);
+  path.setAttribute("d", d);
+};
+
+const nudgeValues = (values, delta = 0.08) =>
+  values.map((value) => {
+    const change = (Math.random() - 0.5) * delta;
+    return Math.min(0.98, Math.max(0.12, value + change));
+  });
+
+const initCharts = () => {
+  const charts = document.querySelectorAll("[data-chart]");
+  charts.forEach((chart) => {
+    const type = chart.getAttribute("data-chart");
+    const config = chartConfigs[type];
+    if (!config) {
+      return;
+    }
+
+    const metricNode = chart.querySelector(config.metric.selector);
+    if (metricNode) {
+      const value = randomBetween(config.range.min, config.range.max, config.range.precision);
+      metricNode.textContent = `${config.metric.prefix}${value}${config.metric.suffix}`;
+    }
+
+    const bars = Array.from(chart.querySelectorAll("[data-bars] span"));
+    const path = chart.querySelector("[data-sparkline]");
+    let values = config.bars.slice();
+    updateBars(bars, values, false);
+    if (path) {
+      updateSparkline(path, values);
+    }
+
+    setInterval(() => {
+      values = nudgeValues(values);
+      updateBars(bars, values);
+      if (path) {
+        updateSparkline(path, values);
+      }
+    }, 4200 + Math.random() * 1200);
+  });
+
+  Object.keys(metricConfigs).forEach((key) => {
+    const config = metricConfigs[key];
+    const metricNode = document.querySelector(`[data-metric='${key}']`);
+    if (!metricNode) {
+      return;
+    }
+    const value = randomBetween(config.min, config.max, config.precision);
+    metricNode.textContent = `${config.prefix}${value}${config.suffix}`;
+    setInterval(() => {
+      const nextValue = randomBetween(config.min, config.max, config.precision);
+      metricNode.textContent = `${config.prefix}${nextValue}${config.suffix}`;
+    }, 5200 + Math.random() * 1800);
+  });
+};
+
+const initMailtoSync = () => {
+  const forms = document.querySelectorAll(".contact-form, .footer-form");
+  forms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      const isFooter = form.classList.contains("footer-form");
+      const name = formData.get("name") || "";
+      const email = formData.get("email") || "";
+      const company = formData.get("company") || "";
+      const message = formData.get("message") || "";
+
+      const bodyLines = [
+        "Hi Zad Team,",
+        "",
+        isFooter ? "Please add me to the updates list." : "Please send the requested materials.",
+        "",
+        name ? `Name: ${name}` : null,
+        email ? `Email: ${email}` : null,
+        company ? `Company size: ${company}` : null,
+        message ? `Notes: ${message}` : null,
+      ].filter(Boolean);
+
+      const body = encodeURIComponent(bodyLines.join("\n"));
+      const subject = encodeURIComponent(
+        isFooter ? "Subscribe request from landing page" : "Resource request from landing page"
+      );
+      window.location.href = `mailto:m9nx11@gmail.com?subject=${subject}&body=${body}`;
+      if (isFooter) {
+        showFormStatus(footerNote, "Subscribed. Expect a monthly delivery update.");
+        form.reset();
+      } else {
+        showFormStatus(formNote, "Thanks. We have your request and will respond within 24 hours.");
+        form.reset();
+      }
+    });
+  });
+};
+
+initCharts();
+initMailtoSync();

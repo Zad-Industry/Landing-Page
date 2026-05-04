@@ -1056,6 +1056,86 @@ textarea:focus-visible,
   background: linear-gradient(140deg, rgba(12, 18, 30, 0.92), rgba(7, 11, 17, 0.98));
 }
 
+.resources {
+  background: radial-gradient(circle at 15% 10%, rgba(15, 26, 42, 0.8), transparent 70%);
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.resources-copy {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.resources-list {
+  margin-top: 0.6rem;
+}
+
+.resources-note {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.resources-stack {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.resource-card {
+  background: rgba(10, 16, 26, 0.92);
+  border: 1px solid rgba(94, 242, 196, 0.22);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1rem;
+}
+
+.resource-card.secondary {
+  border-color: rgba(91, 185, 255, 0.25);
+}
+
+.resource-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.resource-pill {
+  background: rgba(94, 242, 196, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(94, 242, 196, 0.3);
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.resource-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resource-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.resource-foot {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
 .readiness-panel {
   margin-top: 2rem;
   background: rgba(10, 16, 26, 0.92);
@@ -1571,6 +1651,10 @@ textarea:focus-visible,
   .footer-cta {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .resources-grid {
+    grid-template-columns: 1fr;
   }
 }
 

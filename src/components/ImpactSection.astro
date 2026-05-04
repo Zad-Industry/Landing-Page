@@ -40,13 +40,14 @@
             </div>
             <span class="panel-chip">Live</span>
           </div>
-          <div class="impact-chart">
+          <div class="impact-chart" data-chart="latency">
             <div class="chart-legend">
               <span>Median latency</span>
-              <span class="chart-value">-32%</span>
+              <span class="chart-value" data-metric="latency">-32%</span>
             </div>
             <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Latency trend">
               <path
+                data-sparkline
                 d="M4 32 C 18 18, 28 30, 42 22 C 56 14, 70 18, 84 10 C 98 2, 114 8, 136 6"
                 fill="none"
                 stroke="currentColor"
@@ -54,7 +55,7 @@
                 stroke-linecap="round"
               />
             </svg>
-            <div class="chart-bars" aria-hidden="true">
+            <div class="chart-bars" data-bars aria-hidden="true">
               <span style="--bar: 0.35"></span>
               <span style="--bar: 0.5"></span>
               <span style="--bar: 0.6"></span>
@@ -66,13 +67,14 @@
             </div>
             <p class="chart-caption">Traffic climbs while error rates stay below 0.1%.</p>
           </div>
-          <div class="impact-chart secondary">
+          <div class="impact-chart secondary" data-chart="conversion">
             <div class="chart-legend">
               <span>Conversion rate</span>
-              <span class="chart-value">+14%</span>
+              <span class="chart-value" data-metric="conversion">+14%</span>
             </div>
             <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Conversion trend">
               <path
+                data-sparkline
                 d="M4 34 C 18 30, 28 26, 42 20 C 56 16, 70 18, 84 12 C 98 8, 114 10, 136 6"
                 fill="none"
                 stroke="currentColor"
@@ -80,7 +82,7 @@
                 stroke-linecap="round"
               />
             </svg>
-            <div class="chart-bars" aria-hidden="true">
+            <div class="chart-bars" data-bars aria-hidden="true">
               <span style="--bar: 0.4"></span>
               <span style="--bar: 0.46"></span>
               <span style="--bar: 0.55"></span>

@@ -28,13 +28,14 @@
         </div>
       </div>
       <div class="readiness-charts" data-reveal style="--delay: 120ms">
-        <div class="readiness-chart">
+        <div class="readiness-chart" data-chart="stability">
           <div class="chart-legend">
             <span>Release stability</span>
-            <span class="chart-value">+22%</span>
+            <span class="chart-value" data-metric="stability">+22%</span>
           </div>
           <svg class="sparkline" viewBox="0 0 160 48" role="img" aria-label="Stability trend">
             <path
+              data-sparkline
               d="M4 34 C 20 30, 38 26, 56 24 C 74 22, 92 16, 110 12 C 128 10, 146 12, 156 8"
               fill="none"
               stroke="currentColor"
@@ -42,7 +43,7 @@
               stroke-linecap="round"
             />
           </svg>
-          <div class="chart-bars" aria-hidden="true">
+          <div class="chart-bars" data-bars aria-hidden="true">
             <span style="--bar: 0.3"></span>
             <span style="--bar: 0.42"></span>
             <span style="--bar: 0.56"></span>
@@ -54,13 +55,14 @@
           </div>
           <p class="chart-caption">Fewer failed releases with pre-flight gating.</p>
         </div>
-        <div class="readiness-chart">
+        <div class="readiness-chart" data-chart="response">
           <div class="chart-legend">
             <span>Incident response</span>
-            <span class="chart-value">-41%</span>
+            <span class="chart-value" data-metric="response">-41%</span>
           </div>
           <svg class="sparkline" viewBox="0 0 160 48" role="img" aria-label="Response time trend">
             <path
+              data-sparkline
               d="M4 12 C 22 16, 40 20, 58 24 C 76 28, 94 32, 112 36 C 130 38, 146 40, 156 42"
               fill="none"
               stroke="currentColor"
@@ -68,7 +70,7 @@
               stroke-linecap="round"
             />
           </svg>
-          <div class="chart-bars" aria-hidden="true">
+          <div class="chart-bars" data-bars aria-hidden="true">
             <span style="--bar: 0.86"></span>
             <span style="--bar: 0.78"></span>
             <span style="--bar: 0.7"></span>

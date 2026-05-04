@@ -20,17 +20,18 @@
       <div class="security-metric">
         <div>
           <span class="panel-label">Active coverage</span>
-          <strong>86%</strong>
+          <strong data-metric="coverage">86%</strong>
         </div>
         <p class="metric-note">Critical services monitored with automated scans.</p>
       </div>
       <div class="security-graph">
         <div class="chart-legend">
           <span>Threats mitigated</span>
-          <span class="chart-value">+18%</span>
+          <span class="chart-value" data-metric="threats">+18%</span>
         </div>
         <svg class="sparkline" viewBox="0 0 160 48" role="img" aria-label="Threat mitigation trend">
           <path
+            data-sparkline
             d="M4 38 C 20 30, 38 28, 56 22 C 74 18, 92 16, 110 12 C 128 10, 146 14, 156 8"
             fill="none"
             stroke="currentColor"
@@ -38,7 +39,7 @@
             stroke-linecap="round"
           />
         </svg>
-        <div class="chart-bars" aria-hidden="true">
+        <div class="chart-bars" data-bars aria-hidden="true">
           <span style="--bar: 0.32"></span>
           <span style="--bar: 0.48"></span>
           <span style="--bar: 0.54"></span>
@@ -53,7 +54,7 @@
       <div class="security-metric">
         <div>
           <span class="panel-label">Time to fix</span>
-          <strong>36 hrs</strong>
+          <strong data-metric="mttr">36 hrs</strong>
         </div>
         <p class="metric-note">Median time to remediate critical findings.</p>
       </div>
