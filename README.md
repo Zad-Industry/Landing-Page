@@ -20,6 +20,7 @@ npm run preview
 
 - `src/pages/index.astro` - page content
 - `src/layouts/BaseLayout.astro` - head, header, footer
+- `src/components/` - section components
 - `src/styles/global.css` - global styles
 - `public/assets/` - static images and icons
 - `public/scripts/main.js` - client-side behavior

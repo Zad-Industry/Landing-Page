@@ -405,6 +405,8 @@ textarea:focus-visible,
   gap: 1.5rem;
   position: relative;
   justify-items: center;
+  --orbital-size: 240px;
+  --shield-size: 140px;
 }
 
 .visual-card {
@@ -417,6 +419,7 @@ textarea:focus-visible,
   box-shadow: var(--shadow);
   position: relative;
   overflow: hidden;
+  z-index: 2;
 }
 
 .visual-header {
@@ -478,9 +481,17 @@ textarea:focus-visible,
   pointer-events: none;
 }
 
+.orbital-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: var(--orbital-size);
+  height: var(--orbital-size);
+}
+
 .shield {
-  width: 140px;
-  height: 140px;
+  width: var(--shield-size);
+  height: var(--shield-size);
   border-radius: 50%;
   background: rgba(14, 22, 36, 0.9);
   border: 1px solid rgba(94, 242, 196, 0.4);
@@ -488,22 +499,26 @@ textarea:focus-visible,
   place-items: center;
   color: var(--accent);
   box-shadow: var(--shadow);
+  z-index: 3;
 }
 
 .shield svg {
-  width: 90px;
-  height: 90px;
+  width: calc(var(--shield-size) * 0.64);
+  height: calc(var(--shield-size) * 0.64);
 }
 
 .orbital {
   position: absolute;
-  width: 240px;
-  height: 240px;
+  width: var(--orbital-size);
+  height: var(--orbital-size);
   border: 1px dashed rgba(91, 185, 255, 0.3);
   border-radius: 50%;
-  top: -20px;
-  right: 5%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   animation: spin 16s linear infinite;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .cards-grid {
@@ -847,10 +862,10 @@ textarea:focus-visible,
 
 @keyframes spin {
   0% {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(360deg);
   }
 }
 
@@ -873,6 +888,11 @@ textarea:focus-visible,
 
   .hero-meta {
     grid-template-columns: 1fr;
+  }
+
+  .hero-visual {
+    --orbital-size: 220px;
+    --shield-size: 130px;
   }
 
   .nav {
@@ -924,6 +944,11 @@ textarea:focus-visible,
     margin-top: 1.6rem;
   }
 
+  .hero-visual {
+    --orbital-size: 200px;
+    --shield-size: 120px;
+  }
+
   .cta-inner {
     padding: 2.2rem;
   }
@@ -937,6 +962,11 @@ textarea:focus-visible,
 
   .hero-meta {
     display: none;
+  }
+
+  .hero-visual {
+    --orbital-size: 180px;
+    --shield-size: 110px;
   }
 
   .btn {

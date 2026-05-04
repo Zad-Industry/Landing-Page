@@ -6,6 +6,7 @@ const {
   description =
     "Zad Industry builds scalable, secure software systems for startups and growing businesses.",
 } = Astro.props;
+const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "/og-image.svg";
 ---
 
 <!doctype html>
@@ -24,14 +25,14 @@ const {
     <meta property="og:description" content={description} />
     <meta property="og:url" content="https://zadindustry.com/" />
     <meta property="og:site_name" content="Zad Industry" />
-    <meta property="og:image" content="https://zadindustry.com/og-image.svg" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:alt" content="Zad Industry security-first engineering" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://zadindustry.com/og-image.svg" />
+    <meta name="twitter:image" content={ogImage} />
     <link
       rel="icon"
       href="/assets/Orange and Black Modern Business Logo.svg"
