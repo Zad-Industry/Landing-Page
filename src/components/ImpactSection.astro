@@ -1,34 +1,85 @@
-<section class="section impact" id="impact">
+<section class="section impact" id="impact" data-reveal="section">
   <div class="container impact-grid">
     <div class="impact-copy" data-reveal>
       <p class="eyebrow">Production ready</p>
       <h2>Launch with guardrails, not guesswork.</h2>
       <p class="lead">
         We harden delivery paths with security reviews, staging gates, and observability so your
-        product launches stay stable under real traffic.
+        launches stay stable when real users arrive.
       </p>
       <ul class="impact-list">
-        <li>Release checklists and rollback plans</li>
-        <li>Security scanning and dependency reviews</li>
-        <li>Performance budgets and SLO alignment</li>
+        <li>Risk register with mitigation plans</li>
+        <li>Release playbooks, rollback drills, and QA gates</li>
+        <li>SLOs, alerting, and on-call readiness</li>
       </ul>
       <div class="impact-actions">
         <a class="btn btn-primary" href="#contact">Request a roadmap</a>
-        <a class="btn btn-ghost" href="#services">See capabilities</a>
       </div>
+      <p class="impact-note">Get a delivery plan and risk map within 48 hours.</p>
     </div>
-    <div class="impact-stats" data-reveal style="--delay: 120ms">
-      <div class="impact-stat">
-        <span class="impact-number">99.95%</span>
-        <p>Availability targets with proactive monitoring.</p>
+    <div class="impact-side">
+      <div class="impact-stats" data-reveal style="--delay: 120ms">
+        <div class="impact-stat">
+          <span class="impact-number">0.08%</span>
+          <p>Error rate targets that keep user sessions stable.</p>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-number">45 min</span>
+          <p>Incident response time with escalation clarity.</p>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-number">3x</span>
+          <p>Throughput gains after performance tuning.</p>
+        </div>
       </div>
-      <div class="impact-stat">
-        <span class="impact-number">2-week</span>
-        <p>Delivery cadence with visible milestones.</p>
-      </div>
-      <div class="impact-stat">
-        <span class="impact-number">24/7</span>
-        <p>Incident response playbooks and escalation paths.</p>
+      <div class="impact-panel" data-reveal style="--delay: 200ms">
+        <div class="impact-panel-header">
+          <div>
+            <span class="panel-label">End-user impact</span>
+            <strong>Last 30 days</strong>
+          </div>
+          <span class="panel-chip">Live</span>
+        </div>
+        <div class="impact-chart">
+          <div class="chart-legend">
+            <span>Median latency</span>
+            <span class="chart-value">-32%</span>
+          </div>
+          <svg class="sparkline" viewBox="0 0 140 46" role="img" aria-label="Latency trend">
+            <path
+              d="M4 32 C 18 18, 28 30, 42 22 C 56 14, 70 18, 84 10 C 98 2, 114 8, 136 6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+            />
+          </svg>
+          <div class="chart-bars" aria-hidden="true">
+            <span style="--bar: 0.35"></span>
+            <span style="--bar: 0.5"></span>
+            <span style="--bar: 0.6"></span>
+            <span style="--bar: 0.72"></span>
+            <span style="--bar: 0.68"></span>
+            <span style="--bar: 0.82"></span>
+            <span style="--bar: 0.9"></span>
+            <span style="--bar: 0.95"></span>
+          </div>
+          <p class="chart-caption">Traffic climbs while error rates stay below 0.1%.</p>
+        </div>
+        <div class="impact-footer">
+          <div>
+            <strong>99.95%</strong>
+            <span>Uptime</span>
+          </div>
+          <div>
+            <strong>1.8s</strong>
+            <span>Median response</span>
+          </div>
+          <div>
+            <strong>+14%</strong>
+            <span>Conversion lift</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

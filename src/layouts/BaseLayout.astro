@@ -68,9 +68,6 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
     <header class="site-header">
       <div class="container header-inner">
         <div class="nav-shell">
-          <a class="brand" href="#top" aria-label="zad home">
-            <span class="brand-text">zad</span>
-          </a>
           <nav class="nav nav-pill" id="primary-nav" aria-label="Primary">
             <span class="nav-indicator" aria-hidden="true"></span>
             <a href="#top" class="nav-link is-active">Home</a>
@@ -100,10 +97,48 @@ const ogImage = Astro.site ? new URL("/og-image.svg", Astro.site).toString() : "
     <slot />
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <span>zad &copy; 2026</span>
-        <span>Engineering scalable systems for modern businesses.</span>
-        <span>hello@zadindustry.com</span>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <span class="footer-logo">Zad Industry</span>
+          <p>
+            Security-first engineering for startups and scaleups that need reliable delivery and
+            production-ready systems.
+          </p>
+          <div class="footer-cta">
+            <a class="btn btn-primary" href="#contact-form">Start a project</a>
+            <a class="btn btn-ghost" href="#contact-form">Get the audit worksheet</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div>
+            <span class="footer-title">Product</span>
+            <a href="#services">Services</a>
+            <a href="#capabilities">Capabilities</a>
+            <a href="#security">Security</a>
+            <a href="#process">Process</a>
+          </div>
+          <div>
+            <span class="footer-title">Company</span>
+            <a href="#about">About</a>
+            <a href="#clients">Clients</a>
+            <a href="#faq">FAQs</a>
+            <a href="#contact-form">Contact</a>
+          </div>
+          <div>
+            <span class="footer-title">Contact</span>
+            <a href="mailto:hello@zadindustry.com">hello@zadindustry.com</a>
+            <a href="tel:+10000000000">+1 (000) 000-0000</a>
+            <span class="footer-note">Worldwide delivery</span>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 Zad Industry. All rights reserved.</span>
+        <div class="footer-social">
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://x.com" target="_blank" rel="noreferrer">X</a>
+        </div>
       </div>
     </footer>
 

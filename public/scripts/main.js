@@ -3,7 +3,7 @@ const revealTargets = document.querySelectorAll("[data-reveal]");
 const revealElement = (element) => {
   element.classList.add("is-visible");
   element.style.opacity = "1";
-  element.style.transform = "translateY(0)";
+  element.style.transform = "translateY(0) scale(1)";
 };
 
 const revealIfVisible = (element) => {
