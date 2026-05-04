@@ -1,13 +1,18 @@
 ---
+const currentPath = Astro.url.pathname.replace(/\/$/, "");
+const isHome = currentPath === "";
+const hashPrefix = isHome ? "" : "/";
+const bookHref = isHome ? "#contact" : "/#contact";
+
 const links = [
-  { href: "#top", label: "Home" },
-  { href: "#about", label: "About" },
-  { href: "#capabilities", label: "Capabilities" },
-  { href: "#services", label: "What we do" },
-  { href: "#security", label: "Engineering" },
-  { href: "#process", label: "Process" },
-  { href: "#resources", label: "Resources" },
-  { href: "#contact", label: "Start" },
+  { href: `${hashPrefix}#top`, label: "Home" },
+  { href: `${hashPrefix}#about`, label: "About" },
+  { href: `${hashPrefix}#capabilities`, label: "Capabilities" },
+  { href: `${hashPrefix}#services`, label: "What we do" },
+  { href: `${hashPrefix}#security`, label: "Engineering" },
+  { href: `${hashPrefix}#process`, label: "Process" },
+  { href: `${hashPrefix}#resources`, label: "Resources" },
+  { href: `${hashPrefix}#contact`, label: "Start" },
 ];
 ---
 
@@ -31,8 +36,8 @@ const links = [
         >
           Menu
         </button>
-        <a class="btn btn-ghost" href="#contact">Book a Call</a>
-        <a class="btn btn-primary" href="#contact">Get Started</a>
+        <a class="btn btn-ghost" href={bookHref}>Book a Call</a>
+        <a class="btn btn-primary" href="/sales">Get Started</a>
       </div>
     </div>
   </div>

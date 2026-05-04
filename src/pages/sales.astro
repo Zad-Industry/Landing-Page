@@ -1,0 +1,176 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Zad Industry | Sales"
+  description="Book a delivery consult for system development, feature delivery, and architecture upgrades."
+>
+  <main id="main">
+    <section class="section sales-hero" id="sales" data-reveal="section">
+      <div class="container sales-grid">
+        <div class="sales-content" data-reveal>
+          <p class="eyebrow">Book a consult</p>
+          <h1>Let's plan your next system delivery.</h1>
+          <p class="lead">
+            We partner with product and engineering teams to build stable systems, deliver features,
+            and refactor legacy platforms. Tell us where you are today and we will map a clear plan.
+          </p>
+          <div class="sales-highlights">
+            <article class="sales-card" data-reveal style="--delay: 40ms">
+              <span>20-minute discovery call</span>
+              <p>Walk through your stack, risks, and delivery goals with a senior engineer.</p>
+            </article>
+            <article class="sales-card" data-reveal style="--delay: 80ms">
+              <span>Service line match</span>
+              <p>Align on the right service line: system development, feature delivery, or refactor.</p>
+            </article>
+            <article class="sales-card" data-reveal style="--delay: 120ms">
+              <span>Delivery plan in 48 hours</span>
+              <p>Receive a timeline, staffing plan, and engagement model for the next sprint.</p>
+            </article>
+          </div>
+          <div class="sales-support">
+            <p>
+              Just have a question? Email
+              <a href="mailto:zad.industry.software@gmail.com">zad.industry.software@gmail.com</a>.
+            </p>
+          </div>
+        </div>
+        <form
+          class="contact-form sales-form"
+          id="sales-form"
+          data-reveal
+          style="--delay: 160ms"
+          data-default-subject="Sales request from landing page"
+        >
+          <div class="form-header">
+            <h2>Start a project</h2>
+            <p>Share a few details. We respond within 24 hours.</p>
+          </div>
+          <div class="form-section">
+            <span class="form-section-label">Contact details</span>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field-label">Full name <span class="required">*</span></span>
+                <input type="text" name="name" placeholder="Your name" required />
+              </label>
+              <label class="field">
+                <span class="field-label">Work email <span class="required">*</span></span>
+                <input type="email" name="email" placeholder="name@company.com" required />
+              </label>
+              <label class="field">
+                <span class="field-label">Company <span class="required">*</span></span>
+                <input type="text" name="company" placeholder="Company name" required />
+              </label>
+              <label class="field">
+                <span class="field-label">Your role</span>
+                <input type="text" name="role" placeholder="CTO, Product, Engineering" />
+              </label>
+            </div>
+          </div>
+          <fieldset class="option-group option-group-services">
+            <legend>Service line focus</legend>
+            <div class="option-grid">
+              <label class="option-chip">
+                <input type="checkbox" name="services" value="System development" />
+                <span>System development</span>
+              </label>
+              <label class="option-chip">
+                <input type="checkbox" name="services" value="Feature delivery" />
+                <span>Feature delivery</span>
+              </label>
+              <label class="option-chip">
+                <input type="checkbox" name="services" value="Refactoring &amp; optimization" />
+                <span>Refactoring &amp; optimization</span>
+              </label>
+              <label class="option-chip">
+                <input type="checkbox" name="services" value="Architecture restructuring" />
+                <span>Architecture restructuring</span>
+              </label>
+              <label class="option-chip">
+                <input type="checkbox" name="services" value="Portal &amp; dashboard delivery" />
+                <span>Portal &amp; dashboard delivery</span>
+              </label>
+              <label class="option-chip">
+                <input type="checkbox" name="services" value="UI/UX design" />
+                <span>UI/UX design</span>
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="option-group">
+            <legend>Engagement model</legend>
+            <div class="option-grid">
+              <label class="option-chip">
+                <input type="radio" name="engagement" value="Sprint delivery" required />
+                <span>Sprint delivery</span>
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="engagement" value="System rescue" />
+                <span>System rescue</span>
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="engagement" value="Ongoing engineering" />
+                <span>Ongoing engineering</span>
+              </label>
+              <label class="option-chip">
+                <input type="radio" name="engagement" value="Not sure yet" />
+                <span>Not sure yet</span>
+              </label>
+            </div>
+          </fieldset>
+          <div class="form-section">
+            <span class="form-section-label">Project details</span>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field-label">Industry</span>
+                <select name="industry">
+                  <option value="">Select industry</option>
+                  <option value="SaaS">SaaS</option>
+                  <option value="Fintech">Fintech / payments</option>
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Logistics">Logistics</option>
+                  <option value="E-commerce">Retail / e-commerce</option>
+                  <option value="Manufacturing">Manufacturing</option>
+                  <option value="Public sector">Government / public sector</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field-label">Target timeline</span>
+                <input type="text" name="launch" placeholder="e.g. Oct 2026" />
+              </label>
+              <label class="field">
+                <span class="field-label">How did you hear about us?</span>
+                <select name="source">
+                  <option value="">Select an option</option>
+                  <option value="Referral">Referral</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Search">Search</option>
+                  <option value="Event">Conference or event</option>
+                  <option value="Content">Article or podcast</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+              <label class="field field-full">
+                <span class="field-label">Anything we should know?</span>
+                <textarea name="message" rows="4" placeholder="Tell us about your system"></textarea>
+              </label>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button class="btn btn-primary" type="submit">Request a consult</button>
+            <p
+              class="form-note"
+              role="status"
+              aria-live="polite"
+              data-default="We will only email you about your request."
+            >
+              We will only email you about your request.
+            </p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

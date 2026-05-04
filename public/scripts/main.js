@@ -464,11 +464,18 @@ const initMailtoSync = () => {
       event.preventDefault();
       const formData = new FormData(form);
       const isFooter = form.classList.contains("footer-form");
+      const isSales = form.classList.contains("sales-form");
+      const subjectOverride = form.dataset.defaultSubject;
       const name = formData.get("name") || "";
       const email = formData.get("email") || "";
       const company = formData.get("company") || "";
       const launch = formData.get("launch") || "";
       const message = formData.get("message") || "";
+      const role = formData.get("role") || "";
+      const industry = formData.get("industry") || "";
+      const source = formData.get("source") || "";
+      const engagement = formData.get("engagement") || "";
+      const services = formData.getAll("services");
 
       const bodyLines = [
         "Hi Zad Industry team,",
@@ -477,16 +484,21 @@ const initMailtoSync = () => {
         "",
         name ? `Name: ${name}` : null,
         email ? `Email: ${email}` : null,
-        company ? `Company size: ${company}` : null,
+        company ? `${isSales ? "Company" : "Company size"}: ${company}` : null,
+        role ? `Role: ${role}` : null,
+        industry ? `Industry: ${industry}` : null,
+        services.length ? `Service lines: ${services.join(", ")}` : null,
+        engagement ? `Engagement: ${engagement}` : null,
         launch ? `Launch date: ${launch}` : null,
+        source ? `Source: ${source}` : null,
         message ? `Notes: ${message}` : null,
       ].filter(Boolean);
 
       const body = encodeURIComponent(bodyLines.join("\n"));
       const subject = encodeURIComponent(
-        isFooter ? "Subscribe request from landing page" : "Resource request from landing page"
+        subjectOverride || (isFooter ? "Subscribe request from landing page" : "Resource request from landing page")
       );
-      window.location.href = `mailto:m9nx11@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:zad.industry.software@gmail.com?subject=${subject}&body=${body}`;
       if (isFooter) {
         showFormStatus(footerNote, "Subscribed. Expect a monthly delivery update.");
         form.reset();
