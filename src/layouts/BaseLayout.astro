@@ -1,0 +1,120 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "Zad Industry | Scalable, Secure Systems",
+  description =
+    "Zad Industry builds scalable, secure software systems for startups and growing businesses.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#070b11" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Zad Industry" />
+    <link rel="canonical" href="https://zadindustry.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://zadindustry.com/" />
+    <meta property="og:site_name" content="Zad Industry" />
+    <meta property="og:image" content="https://zadindustry.com/og-image.svg" />
+    <meta property="og:image:alt" content="Zad Industry security-first engineering" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://zadindustry.com/og-image.svg" />
+    <link
+      rel="icon"
+      href="/assets/Orange and Black Modern Business Logo.svg"
+      type="image/svg+xml"
+    />
+    <link rel="shortcut icon" href="/assets/Orange and Black Modern Business Logo.svg" />
+    <link
+      rel="icon"
+      href="/assets/Orange and Black Modern Business Logo (1).png"
+      type="image/png"
+    />
+    <link rel="apple-touch-icon" href="/assets/Orange and Black Modern Business Logo (1).png" />
+    <!-- Inline data-URI favicon (base64 SVG) for broader tab support -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwMCIgem9vbUFuZFBhbj0ibWFnbmlmeSIgdmlld0JveD0iMCAwIDE1MDAgMTQ5OS45OTk5MzMiIGhlaWdodD0iMjAwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQgbWVldCIgdmVyc2lvbj0iMS4wIj48ZGVmcz48Zy8+PGNsaXBQYXRoIGlkPSIxZWJhZWVhOTk4Ij48cGF0aCBkPSJNIDU5NC44NjMyODEgNDMzLjI1IEwgOTA1LjM2MzI4MSA0MzMuMjUgTCA5MDUuMzYzMjgxIDc0My43NSBMIDU5NC44NjMyODEgNzQzLjc1IFogTSA1OTQuODYzMjgxIDQzMy4yNSAiIGNsaXAtcnVsZT0ibm9uemVybyIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSJjMGFhZDJiMzU5Ij48cmVjdCB4PSIwIiB3aWR0aD0iNDM5IiB5PSIwIiBoZWlnaHQ9IjI4OSIvPjwvY2xpcFBhdGg+PGNsaXBQYXRoIGlkPSI1YTE4ZDQ0ZjA3Ij48cmVjdCB4PSIwIiB3aWR0aD0iNDIzIiB5PSIwIiBoZWlnaHQ9IjEyMiIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCMxZWJhZWVhOTk4KSI+PHBhdGggZmlsbD0iIzBhMGEwYSIgZD0iTSA3NzcuNjUyMzQ0IDYxNi4wNzQyMTkgTCA3NzcuNjUyMzQ0IDU2MC42ODc1IEwgNzIyLjI2OTUzMSA1NjAuNjg3NSBMIDcyMi4yNjk1MzEgNjE2LjEzNjcxOSBMIDc3Ny42NTIzNDQgNjE2LjEzNjcxOSBaIE0gODc2LjEzNjcxOSA2ODguMDMxMjUgTCA4NjMuNzE4NzUgNjg4LjAzMTI1IEMgODU1Ljk4NDM3NSA2ODguMDMxMjUgODQ5LjY3OTY4OCA2OTQuMzM5ODQ0IDg0OS42Nzk2ODggNzAyLjA3NDIxOSBMIDg0OS42Nzk2ODggNzQzLjQ4MDQ2OSBMIDcyMi4yNjk1MzEgNzQzLjQ4MDQ2OSBMIDcyMi4yNjk1MzEgNjg4LjAzMTI1IEwgODM1LjYzNjcxOSA2ODguMDMxMjUgQyA4NDMuMzc1IDY4OC4wMzEyNSA4NDkuNjc5Njg4IDY4MS43MjY1NjIgODQ5LjY3OTY4OCA2NzMuOTkyMTg4IEwgODQ5LjY3OTY4OCA0ODguNzMwNDY5IEwgNjY0LjM1MTU2MiA0ODguNzMwNDY5IEMgNjU2LjYxNzE4OCA0ODguNzMwNDY5IDY1MC4zMDg1OTQgNDk1LjAzNTE1NiA2NTAuMzA4NTk0IDUwMi43Njk1MzEgTCA2NTAuMzA4NTk0IDc0My40ODA0NjkgTCA1OTQuODYzMjgxIDc0My40ODA0NjkgTCA1OTQuODYzMjgxIDQ4OC42NjQwNjIgTCA2MzYuMjY5NTMxIDQ4OC42NjQwNjIgQyA2NDQuMDAzOTA2IDQ4OC42NjQwNjIgNjUwLjMwODU5NCA0ODIuMzU5Mzc1IDY1MC4zMDg1OTQgNDc0LjYyNSBMIDY1MC4zMDg1OTQgNDMzLjI4MTI1IEwgOTA1LjEyODkwNiA0MzMuMjgxMjUgTCA5MDUuMTI4OTA2IDY4OC4wMzEyNSBaIE0gODc2LjEzNjcxOSA2ODguMDMxMjUgIiBmaWxsLW9wYWNpdHk9IjEiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLCAwLCAwLCAxLCA1MzIsIDc2MSkiPjxnIGNsaXAtcGF0aD0idXJsKCNjMGFhZDJiMzU5KSI+PGcgZmlsbD0iIzAwMDAwMCIgZmlsbC1vcGFjaXR5PSIwLjMwMiI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNy4zODA3NjcsIDIyNC4xOTU5MTEpIj48Zz48cGF0aCBkPSJNIDcuNzUgLTIzLjkzNzUgTCA4Ny4yOTY4NzUgLTEyOS40MDYyNSBMIDg3LjI5Njg3NSAtMTI5Ljg0Mzc1IEwgOS45Njg3NSAtMTI5Ljg0Mzc1IEwgOS45Njg3NSAtMTU1LjEwOTM3NSBMIDEyMy40MjE4NzUgLTE1NS4xMDkzNzUgTCAxMjMuNDIxODc1IC0xMzEuMTcxODc1IEwgNDMuODc1IC0yNS43MDMxMjUgTCA0My44NzUgLTI1LjI2NTYyNSBMIDEyMy40MjE4NzUgLTI1LjI2NTYyNSBMIDEyMy40MjE4NzUgMCBMIDcuNzUgMCBaIE0gNy43NSAtMjMuOTM3NSAiLz48L2c+PC9nPjwvZz48L3N2Zz4="
+    />
+    <!-- Fallbacks and tile color for some platforms -->
+    <meta name="msapplication-TileColor" content="#070b11" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&family=Sora:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Zad Industry",
+        "url": "https://zadindustry.com/",
+        "description": "Zad Industry builds scalable, secure software systems for startups and growing businesses.",
+        "foundingDate": "2026",
+        "areaServed": "Worldwide",
+        "slogan": "Building scalable, secure systems from day one"
+      }
+    </script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb-one" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Zad Industry home">
+          <img
+            src="/assets/Orange and Black Modern Business Logo (1).png"
+            alt="Zad Industry logo"
+            class="brand-logo"
+          />
+          <span class="brand-text">Zad Industry</span>
+        </a>
+        <nav class="nav" id="primary-nav" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#services">What we do</a>
+          <a href="#security">Security</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Start</a>
+        </nav>
+        <div class="header-actions">
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+            Menu
+          </button>
+          <a class="btn btn-ghost" href="#contact">Book a Call</a>
+          <a class="btn btn-primary" href="#contact">Get Started</a>
+        </div>
+      </div>
+    </header>
+
+    <slot />
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>Zad Industry &copy; 2026</span>
+        <span>Engineering scalable systems for modern businesses.</span>
+        <span>hello@zadindustry.com</span>
+      </div>
+    </footer>
+
+    <script src="/scripts/main.js" defer></script>
+  </body>
+</html>
