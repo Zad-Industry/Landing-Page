@@ -1,0 +1,16 @@
+{
+  "name": "zad",
+  "short_name": "zad",
+  "description": "zad builds scalable, secure software systems for startups and growing businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#070b11",
+  "theme_color": "#070b11",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
