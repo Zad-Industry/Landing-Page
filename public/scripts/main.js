@@ -472,6 +472,7 @@ const initMailtoSync = () => {
       const name = formData.get("name") || "";
       const email = formData.get("email") || "";
       const company = formData.get("company") || "";
+      const launch = formData.get("launch") || "";
       const message = formData.get("message") || "";
 
       const bodyLines = [
@@ -482,6 +483,7 @@ const initMailtoSync = () => {
         name ? `Name: ${name}` : null,
         email ? `Email: ${email}` : null,
         company ? `Company size: ${company}` : null,
+        launch ? `Launch date: ${launch}` : null,
         message ? `Notes: ${message}` : null,
       ].filter(Boolean);
 

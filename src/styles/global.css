@@ -558,6 +558,46 @@ textarea:focus-visible,
   gap: 1rem;
 }
 
+.impact-proof {
+  margin-top: 1.6rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.proof-card {
+  background: rgba(10, 16, 26, 0.9);
+  border: 1px solid rgba(27, 36, 52, 0.9);
+  border-radius: var(--radius-small);
+  padding: 1.1rem 1.2rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.proof-card h3 {
+  font-family: var(--font-title);
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.proof-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.proof-meta {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--secondary);
+  font-family: var(--font-mono);
+}
+
 .impact-panel {
   margin-top: 1.5rem;
   background: rgba(10, 16, 26, 0.92);
@@ -838,6 +878,25 @@ textarea:focus-visible,
   border-radius: 999px;
   text-align: center;
   background: rgba(10, 16, 26, 0.7);
+}
+
+.compliance-strip {
+  margin-top: 1.4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.compliance-strip span {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(94, 242, 196, 0.2);
+  background: rgba(7, 12, 20, 0.6);
+  font-size: 0.75rem;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-family: var(--font-mono);
 }
 
 .case-grid {
@@ -1352,6 +1411,28 @@ textarea:focus-visible,
   background: linear-gradient(140deg, rgba(10, 16, 26, 0.92), rgba(7, 11, 17, 0.96));
 }
 
+.worksheet-banner {
+  margin-top: 2rem;
+  background: rgba(10, 16, 26, 0.85);
+  border: 1px solid rgba(94, 242, 196, 0.25);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.worksheet-banner h3 {
+  font-family: var(--font-title);
+  font-size: 1.2rem;
+  margin: 0.4rem 0;
+}
+
+.worksheet-banner p {
+  color: var(--text-muted);
+}
+
 .contact-grid {
   margin-top: 2.5rem;
   display: grid;
@@ -1640,6 +1721,11 @@ textarea:focus-visible,
   }
 
   .footer-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .worksheet-banner {
     flex-direction: column;
     align-items: flex-start;
   }
